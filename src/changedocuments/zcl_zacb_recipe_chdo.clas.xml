@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_ZACB_RECIPE_CHDO</CLSNAME>
+    <LANGU>D</LANGU>
+    <DESCRIPT>Generierte Klasse for Objekt :ZACB_RECIPE</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <UNICODE>5</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>OBJECTCLASS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Objektklasse</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TT_ZACB_INGREDIENT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>generierter Tabellentyp: ZACB_INGREDIENT</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_ZACB_INGREDIENT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>generierter Zeilentyp:ZACB_INGREDIENT</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Schreibmethode für Object :ZACB_RECIPE</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>CHANGENUMBER</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Änderungsbelegnummer</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>CX_CHDO_WRITE_ERROR</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Exceptionklasse für WRITE Methode</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>NO_CHANGE_POINTERS</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Kz: es werden keine Belege geschrieben</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>N_ZACB_RECIPE</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Workarea mit veränderten Inhalten</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>OBJECTID</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Id der Objektausprägung</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>OBJECT_CHANGE_INDICATOR</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Kz: Objekt eingefügt, geändert oder gelöscht</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>O_ZACB_RECIPE</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Workarea mit ursprünglichen Inhalten</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>PLANNED_CHANGE_NUMBER</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Plannummer</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>PLANNED_OR_REAL_CHANGES</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Kz, ob Änderungen echt oder geplant sind</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>UDATE</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Änderungsdatum</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>UPD_ZACB_INGREDIENT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Art der Änderung</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>UPD_ZACB_RECIPE</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Art der Änderung</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>USERNAME</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Name des Ändernden</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>UTIME</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Änderungsuhrzeit</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>XZACB_INGREDIENT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Tabelle enthält die veränderten Daten</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE</CMPNAME>
+     <SCONAME>YZACB_INGREDIENT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Tabelle enthält unveränderte Daten</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

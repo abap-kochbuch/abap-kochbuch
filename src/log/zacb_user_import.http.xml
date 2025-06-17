@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_HTTP" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <HTTPID>ZACB_USER_IMPORT</HTTPID>
+   <HTTPTEXT>
+    <ID>ZACB_USER_IMPORT</ID>
+    <VERSION>A</VERSION>
+    <LANG>D</LANG>
+    <SHORTTEXT>Benutzerdatenimport</SHORTTEXT>
+   </HTTPTEXT>
+   <HTTPHDL>
+    <item>
+     <ID>ZACB_USER_IMPORT</ID>
+     <VERSION>A</VERSION>
+     <SERVICEORDER>01</SERVICEORDER>
+     <SERVICEHANDLER>ZCL_ACB_USER_IMPORT_HANDLER</SERVICEHANDLER>
+    </item>
+   </HTTPHDL>
+  </asx:values>
+ </asx:abap>
+</abapGit>

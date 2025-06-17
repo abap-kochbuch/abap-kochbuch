@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for ZACB_C_MASSCHANGE'
+define service ZACB_MASS_CHANGE {
+  expose ZACB_C_MassChange as MassChange;
+}

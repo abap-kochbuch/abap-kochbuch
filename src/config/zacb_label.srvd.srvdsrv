@@ -1,0 +1,5 @@
+define service ZACB_LABEL {
+  expose ZACB_C_LABEL_S as LabelAll;
+  expose ZACB_C_LABEL as Label;
+  expose ZACB_C_LABELTEXT as LabelText;
+}

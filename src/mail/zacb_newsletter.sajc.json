@@ -1,0 +1,15 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Newsletter Versendung",
+    "originalLanguage": "de",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "className": "ZCL_ACB_NEWSLETTER"
+  },
+  "exitClasses": {
+    "check": "ZCL_ACB_NEWSLETTER_CHK",
+    "notification": "ZCL_ACB_NEWSLETTER_NOTIF"
+  }
+}

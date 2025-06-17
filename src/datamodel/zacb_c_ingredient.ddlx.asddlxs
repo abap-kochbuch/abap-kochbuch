@@ -1,0 +1,61 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Zutat',
+    typeNamePlural: 'Zutaten'
+  }
+}annotate view ZACB_C_Ingredient with
+{
+  @UI.facet: [ {
+    id: 'idIdentification2',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Zutaten',
+    position: 10
+  } ]
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM,
+    label: ''
+  }
+  ]
+  @UI.identification: [ {
+    position: 10 ,
+    label: ''
+  }]
+  IngredientId;
+
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: ''
+  } ]
+  @UI.identification: [ {
+  position: 20 ,
+  label: ''
+}]
+  Name;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM,
+    label: ''
+  } ]
+  @UI.identification: [ {
+  position: 30 ,
+  label: ''
+}]
+  Quantity;
+
+  @UI.lineItem: [ {
+    position: 40 ,
+    importance: #MEDIUM,
+    label: ''
+  } ]
+  @UI.identification: [ {
+  position: 40 ,
+  label: ''
+}]
+  Unit;
+
+}

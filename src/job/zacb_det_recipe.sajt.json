@@ -1,0 +1,23 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Rezeptermittlung",
+    "originalLanguage": "de",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "catalogName": "ZACB_DET_RECIPE"
+  },
+  "parameters": {
+    "singleValueParameters": [
+      {
+        "name": "DAYS",
+        "value": "5"
+      },
+      {
+        "name": "WEEKS",
+        "value": "X"
+      }
+    ]
+  }
+}

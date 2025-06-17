@@ -1,0 +1,39 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'LabelText', 
+    typeNamePlural: 'LabelTexts', 
+    title: {
+      type: #STANDARD, 
+      label: 'Label Text', 
+      value: 'Language'
+    }
+  }
+}
+annotate view ZACB_C_LabelText with
+{
+  @UI.facet: [ {
+    id: 'ZACB_I_LabelText', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Label Text', 
+    position: 1 
+  } ]
+  @UI.identification: [ {
+    position: 1 , 
+    label: 'Language'
+  } ]
+  @UI.lineItem: [ {
+    position: 1 , 
+    label: 'Language'
+  } ]
+  Language;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  LabelText;
+}

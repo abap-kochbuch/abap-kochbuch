@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZACB_NEWSLETTER</ARBGB>
+    <MASTERLANG>D</MASTERLANG>
+    <STEXT>Nachrichten Newsletter</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>ZACB_NEWSLETTER</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>Benutzer ist nicht berechtigt</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>ZACB_NEWSLETTER</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Ermittlungstage muss größer 0 sein</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>ZACB_NEWSLETTER</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Nur periodische Einplanung erlaubt</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

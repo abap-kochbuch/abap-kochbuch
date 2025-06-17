@@ -1,0 +1,8 @@
+@EndUserText.label: 'Rezept'
+@MappingRole: true
+define role ZACB_C_RECIPE {
+    grant
+       select on ZACB_C_RECIPE
+        where inheriting conditions from entity ZACB_R_Recipe;
+                        
+}

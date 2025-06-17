@@ -1,0 +1,50 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Kundendatenbrowserobject Rezept",
+    "originalLanguage": "de",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "objectType": "DDLS",
+    "objectName": "ZACB_I_RECIPE_CDBO"
+  },
+  "fields": [
+    {
+      "name": "RECIPE_ID",
+      "nature": "general"
+    },
+    {
+      "name": "RECIPE_NAME",
+      "nature": "general"
+    },
+    {
+      "name": "RECIPE_TEXT",
+      "nature": "general"
+    },
+    {
+      "name": "CREATED_BY",
+      "nature": "nonBusinessInformation"
+    },
+    {
+      "name": "CREATED_AT",
+      "nature": "nonBusinessInformation"
+    },
+    {
+      "name": "LOCAL_LAST_CHANGED_BY",
+      "nature": "nonBusinessInformation"
+    },
+    {
+      "name": "LOCAL_LAST_CHANGED_AT",
+      "nature": "nonBusinessInformation"
+    },
+    {
+      "name": "LAST_CHANGED_AT",
+      "nature": "nonBusinessInformation"
+    },
+    {
+      "name": "LAST_CHANGED_BY",
+      "nature": "nonBusinessInformation"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+@MappingRole: true
+define role ZACB_I_Label {
+  grant select on ZACB_I_Label
+  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = 'ZACB_I_LABEL' );
+}

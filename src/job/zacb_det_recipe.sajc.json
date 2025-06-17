@@ -1,0 +1,14 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Rezeptermittlung",
+    "originalLanguage": "de",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "className": "ZCL_ACB_DET_RECIPE"
+  },
+  "exitClasses": {
+    "check": "ZCL_ACB_DET_RECIPE_CHK"
+  }
+}

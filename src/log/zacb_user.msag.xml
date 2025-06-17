@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZACB_USER</ARBGB>
+    <MASTERLANG>D</MASTERLANG>
+    <STEXT>Benutzerdatenverwaltung</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>ZACB_USER</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>Beende Benutzerdatenimport</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>ZACB_USER</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>&amp;1 Benutzerstammsätze wurden erfolgreich angepasst</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>ZACB_USER</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Fehler bei Benutzerdatenkonvertierung</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>ZACB_USER</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Delimiter (Trennzeichen) wurde nicht versorgt</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>ZACB_USER</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Zeilenaufbau oder Zellinhalt unerwartet</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

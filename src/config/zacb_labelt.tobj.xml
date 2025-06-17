@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_TOBJ" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <OBJH>
+    <OBJECTNAME>ZACB_LABEL</OBJECTNAME>
+    <OBJECTTYPE>T</OBJECTTYPE>
+    <CLIDEP>X</CLIDEP>
+    <LANGDEP>X</LANGDEP>
+    <OBJCATEG>CUST</OBJCATEG>
+    <OBJTRANSP>2</OBJTRANSP>
+   </OBJH>
+   <OBJT>
+    <LANGUAGE>D</LANGUAGE>
+    <OBJECTNAME>ZACB_LABEL</OBJECTNAME>
+    <OBJECTTYPE>T</OBJECTTYPE>
+    <DDTEXT>Labels pflegen</DDTEXT>
+   </OBJT>
+   <OBJS>
+    <OBJS>
+     <OBJECTNAME>ZACB_LABEL</OBJECTNAME>
+     <OBJECTTYPE>T</OBJECTTYPE>
+     <TABNAME>ZACB_LABEL</TABNAME>
+    </OBJS>
+    <OBJS>
+     <OBJECTNAME>ZACB_LABEL</OBJECTNAME>
+     <OBJECTTYPE>T</OBJECTTYPE>
+     <TABNAME>ZACB_LABELT</TABNAME>
+    </OBJS>
+   </OBJS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

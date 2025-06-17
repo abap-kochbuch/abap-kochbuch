@@ -1,0 +1,70 @@
+managed implementation in class ZBP_ACB_R_MASS_CHANGE unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZACB_R_MassChange alias MassChange
+persistent table zacb_massc
+draft table zacb_massc_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+
+{
+  field ( readonly )
+  MassChangeUUID,
+  TemplateFileContent,
+  ProcessingStatus,
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LocalLastChangedAt,
+  LocalLastChangedBy;
+
+  field ( numbering : managed )
+  MassChangeUUID;
+
+  field ( features : instance )
+  ProcessingFileContent;
+
+  side effects
+  {
+    field TemplateFileContent affects permissions ( action generateTemplate, field ProcessingFileContent );
+    field ProcessingFileContent affects permissions ( action processFile );
+  }
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+
+  action ( features : instance ) generateTemplate result [1] $self;
+  action ( features : instance ) processFile result [1] $self;
+
+  determination setProcessingStatus on modify { create; field ProcessingFileContent; }
+
+  mapping for zacb_massc
+    {
+      MassChangeUUID         = mass_change_uuid;
+      TemplateFileContent    = template_file_content;
+      TemplateFileMimetype   = template_file_mimetype;
+      TemplateFilename       = template_filename;
+      ProcessingFileContent  = processing_file_content;
+      ProcessingFileMimetype = processing_file_mimetype;
+      ProcessingFilename     = processing_filename;
+      ProcessingStatus       = processing_status;
+      ChangeDescription      = change_description;
+      ChangeTitle            = change_title;
+      CreatedBy              = created_by;
+      CreatedAt              = created_at;
+      LocalLastChangedBy     = local_last_changed_by;
+      LocalLastChangedAt     = local_last_changed_at;
+      LastChangedAt          = last_changed_at;
+    }
+}
