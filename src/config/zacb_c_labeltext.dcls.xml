@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DCLS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DCLS>
+    <DCLNAME>ZACB_C_LABELTEXT</DCLNAME>
+    <DCLLANGUAGE>D</DCLLANGUAGE>
+    <DDTEXT>Access Control for ZACB_C_LabelText</DDTEXT>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+   </DCLS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

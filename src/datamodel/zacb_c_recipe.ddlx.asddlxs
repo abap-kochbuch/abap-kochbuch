@@ -1,0 +1,70 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Rezept',
+    typeNamePlural: 'Rezepte'
+  }
+}
+annotate view ZACB_C_Recipe with
+{
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Rezept',
+    position: 10
+  },
+  {
+  id         : 'controlSection',
+  type       : #LINEITEM_REFERENCE,
+  position   : 20,
+  targetElement: '_Ingredient'
+  },
+    {
+  id         : 'controlSection1',
+  type       : #LINEITEM_REFERENCE,
+  position   : 30,
+  targetElement: '_Review'
+  }
+  ]
+  @UI.lineItem: [ {
+     position: 10 ,
+     importance: #MEDIUM,
+     label: ''
+   } ]
+  @UI.identification: [ {
+    position: 10 ,
+    label: ''
+  } ]
+  RecipeId;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM,
+    label: ''
+  } ]
+  @UI.identification: [ {
+    position: 20 ,
+    label: ''
+  } ]
+  RecipeName;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM,
+    label: ''
+  } ]
+  @UI.identification: [ {
+    position: 30 ,
+    label: ''
+  } ]
+  RecipeText;
+
+  @UI.identification: [ {
+    position: 40 ,
+    label: ''
+  } ]
+  Published;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+}

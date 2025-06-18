@@ -1,0 +1,117 @@
+managed implementation in class zbp_acb_r_recipe unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZACB_R_Recipe alias Recipe
+persistent table zacb_recipe
+draft table zacb_recipe_d
+with additional save
+etag master LocalLastChangedAt
+lock master unmanaged
+total etag LastChangedAt
+authorization master( global , instance )
+early numbering
+{
+
+  field ( readonly )
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LastChangedBy,
+  LocalLastChangedAt,
+  LocalLastChangedBy;
+
+  field ( readonly )
+  RecipeID;
+
+  create;
+  update(precheck);
+  delete;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _Ingredient { create; with draft; }
+  association _Review { create; with draft; }
+
+  mapping for zacb_recipe
+    {
+      RecipeId           = recipe_id;
+      RecipeName         = recipe_name;
+      RecipeText         = recipe_text;
+      Published          = published;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+      LastChangedBy      = last_changed_by;
+    }
+}
+
+define behavior for ZACB_R_Ingredient alias Ingredient
+persistent table zacb_ingredient
+with additional save
+lock dependent by _Recipe
+authorization dependent by _Recipe
+draft table zacb_ingredien_d
+
+//etag master <field_name>
+{
+  update(precheck);
+  delete(precheck);
+  field ( readonly ) RecipeId;
+  field ( readonly : update ) IngredientId;
+  field ( mandatory : create ) IngredientId;
+
+  association _Recipe { with draft; }
+  mapping for zacb_ingredient
+    {
+      RecipeId           = recipe_id;
+      IngredientId       = ingredient_id;
+      Name               = name;
+      Quantity           = quantity;
+      Unit               = unit;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+      LastChangedBy      = last_changed_by;
+      CreatedAt          = created_at;
+      CreatedBy          = created_by;
+    }
+}
+
+define behavior for ZACB_R_Review alias Review
+persistent table zacb_review
+lock dependent by _Recipe
+authorization dependent by _Recipe
+draft table zacb_review_d
+
+//etag master <field_name>
+{
+  update(precheck);
+  delete(precheck);
+  field ( readonly ) RecipeId;
+  field ( readonly ) ReviewId;
+  field ( numbering : managed ) ReviewId;
+  association _Recipe { with draft; }
+  mapping for zacb_review
+    {
+      ReviewId           = review_id;
+      RecipeId           = recipe_id;
+      Reviewtext         = review_text;
+      Username           = username;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+      LastChangedBy      = last_changed_by;
+      CreatedAt          = created_at;
+      CreatedBy          = created_by;
+      Attachment         = attachment;
+      Filename           = filename;
+      Mimetype           = mimetype;
+    }
+}

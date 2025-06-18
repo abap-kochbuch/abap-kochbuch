@@ -1,0 +1,9 @@
+@EndUserText.label: 'Massenänderung'
+@MappingRole: true
+define role ZACB_C_MassChange {
+  grant
+    select
+      on
+        ZACB_C_MassChange; 
+        
+}

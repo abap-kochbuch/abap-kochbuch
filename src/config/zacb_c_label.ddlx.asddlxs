@@ -1,0 +1,106 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Label', 
+    typeNamePlural: 'Labels', 
+    title: {
+      type: #STANDARD, 
+      label: 'Label', 
+      value: 'LabelId'
+    }
+  }
+}
+annotate view ZACB_C_Label with
+{
+  @UI.hidden: true
+  ConfigDeprecationCode_Critlty;
+  
+  @UI.hidden: true
+  ConfigurationDeprecation_Text;
+  
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'CopyLabel', 
+    label: 'Copy Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: 'ZACB_I_Label', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Label', 
+    position: 1 
+  }, 
+  {
+    id: 'ZACB_I_LabelText', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'Label Text', 
+    position: 2 , 
+    targetElement: '_LabelText'
+  } ]
+  LabelId;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3,
+    criticality: 'LabelColor',
+    criticalityRepresentation: #WITHOUT_ICON
+  } ]
+  LabelColor;
+  
+  @UI.identification: [ {
+    position: 4 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate'
+  } ]
+  @UI.textArrangement: #TEXT_ONLY
+  @UI.lineItem: [ {
+    position: 4 , 
+    criticality: 'ConfigDeprecationCode_Critlty'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Deprecate', 
+    label: 'Deprecate Selected Entry'
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Invalidate', 
+    label: 'Invalidate Selected Entry'
+  } ]
+  ConfigDeprecationCode;
+  
+  @UI.identification: [ {
+    position: 5 
+  } ]
+  LastChangedAt;
+  
+  @UI.identification: [ {
+    hidden: true, 
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2,
+    criticality: 'LabelColor',
+    criticalityRepresentation: #WITHOUT_ICON,
+    emphasized: true 
+  } ]
+  LabelText;
+}

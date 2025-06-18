@@ -1,0 +1,5 @@
+@MappingRole: true
+define role ZACB_C_Label {
+  grant select on ZACB_C_Label
+  where INHERITING CONDITIONS FROM ENTITY ZACB_I_Label;
+}

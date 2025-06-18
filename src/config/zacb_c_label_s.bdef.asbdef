@@ -1,0 +1,44 @@
+projection implementation in class ZBP_ACB_C_LABEL_S unique;
+strict;
+use draft;
+
+define behavior for ZACB_C_Label_S alias LabelAll
+
+{
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+  use action SelectCustomizingTransptReq;
+
+  use association _Label { create ( augment ); with draft; }
+}
+
+define behavior for ZACB_C_Label alias Label
+
+{
+  field ( modify )
+   LabelText;
+
+
+  use update( augment );
+  use delete;
+
+  use action Deprecate;
+  use action Invalidate;
+  use action CopyLabel;
+
+  use association _LabelAll { with draft; }
+  use association _LabelText { create; with draft; }
+}
+
+define behavior for ZACB_C_LabelText alias LabelText
+
+{
+  use update;
+  use delete;
+
+  use association _LabelAll { with draft; }
+  use association _Label { with draft; }
+}

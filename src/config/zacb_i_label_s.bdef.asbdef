@@ -1,0 +1,112 @@
+managed with additional save implementation in class ZBP_ACB_I_LABEL_S unique;
+strict;
+with draft;
+
+define behavior for ZACB_I_Label_S alias LabelAll
+draft table ZACB_LABEL_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  field ( readonly )
+   SingletonID;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare {
+    validation Label ~ ValidateDataConsistency;
+  }
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _Label { create ( features : instance ); with draft; }
+}
+
+define behavior for ZACB_I_Label alias Label
+persistent table ZACB_LABEL
+draft table ZACB_LABEL_D
+etag master LocalLastChangedAt
+lock dependent by _LabelAll
+authorization dependent by _LabelAll
+
+{
+  field ( mandatory : create )
+   LabelId;
+
+  field ( readonly )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt,
+   ConfigDeprecationCode;
+
+  field ( readonly : update )
+   LabelId;
+
+
+  update( features : global );
+//  internal delete;
+  delete;
+
+  factory action ( features : instance ) CopyLabel parameter ZACB_D_CopyLabelP [1];
+  action ( features : instance ) Deprecate result [1] $self;
+  action ( features : instance ) Invalidate result [1] $self;
+
+  mapping for ZACB_LABEL
+  {
+    LabelId = LABEL_ID;
+    LabelColor = LABEL_COLOR;
+    ConfigDeprecationCode = CONFIGDEPRECATIONCODE;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _LabelAll { with draft; }
+  association _LabelText { create ( features : global ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+  validation ValidateDataConsistency on save { create; update; }
+}
+
+define behavior for ZACB_I_LabelText alias LabelText
+persistent table ZACB_LABELT
+draft table ZACB_LABELT_D
+etag master LocalLastChangedAt
+lock dependent by _LabelAll
+authorization dependent by _LabelAll
+
+{
+  field ( mandatory : create )
+   Language;
+
+  field ( readonly )
+   SingletonID,
+   LabelId,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   Language;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZACB_LABELT
+  {
+    Language = LANGUAGE;
+    LabelId = LABEL_ID;
+    LabelText = LABEL_TEXT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _LabelAll { with draft; }
+  association _Label { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

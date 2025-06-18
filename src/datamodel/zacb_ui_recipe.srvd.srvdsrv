@@ -1,0 +1,6 @@
+@EndUserText.label: 'Rezept'
+define service ZACB_UI_RECIPE {
+  expose ZACB_C_Recipe     as Recipe;
+  expose ZACB_C_Ingredient as Ingredients;
+  expose ZACB_C_Review     as Review;
+}

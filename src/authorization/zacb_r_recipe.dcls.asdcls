@@ -1,0 +1,11 @@
+@EndUserText.label: 'Rezept'
+@MappingRole: true
+define role ZACB_R_RECIPE {
+    grant
+        select
+            on
+                ZACB_R_RECIPE
+                where 
+                      Published = 'X' or
+                      CreatedBy = aspect user;     
+}
