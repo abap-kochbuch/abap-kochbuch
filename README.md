@@ -43,7 +43,7 @@ Die Kapitel beziehen sich jeweils auf folgende Ordner / Unterpakete.
 
 ## Anzeige im Texteditor / IDE
 
-Ohne SAP-System können Sie quelltext-basierte Objekte direkt in den Datein im Ordner [src/](./src/) anschauen. Empfehlenswert sind Plugins zum Syntax Highlighting. Für Visual Studio Code finden Sie diese zum Beispiel im [Standalone ABAP Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=larshp.standalone-abap-development). In der GitHub-Weboberfläche ist automatisch ABAP-Syntaxhighlighting verfügbar.
+Ohne SAP-System können Sie quelltext-basierte Objekte direkt in den Dateien im Ordner [src/](./src/) anschauen. Empfehlenswert sind Plugins zum Syntax Highlighting. Für Visual Studio Code finden Sie diese zum Beispiel im [Standalone ABAP Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=larshp.standalone-abap-development). In der GitHub-Weboberfläche ist automatisch ABAP-Syntaxhighlighting verfügbar.
 
 <a href="./img/vscode.png"><img src="./img/vscode.png" alt="Screenshot Visual Studio Code mit ABAP-Syntaxhighlighting" width="600"></a>
 
@@ -99,7 +99,7 @@ Zur Installation des Repositories haben Sie zwei Optionen:
       Belassen Sie alle weiteren Parameter auf den Standardwerten.
 
       > __💡 Hinweis__  
-      > Alternativ können Sie auch ein an das Transportwesen gebundenes Z-Paket `ZCOOKBOOK` verwenden.
+      > Alternativ können Sie auch ein an das Transportwesen gebundenen Z-Paket `ZCOOKBOOK` verwenden.
 
 5. Importieren Sie die Objekte in das System. Klicken Sie dazu auf _Pull_ und markieren Sie im anschließenden Dialogfenster alle Objekte. Diese sollten alle die Beschreibung _Add local object_ enthalten. Bestätigen Sie mit _Continue_.  
     > __💡 Hinweis__  
@@ -312,7 +312,7 @@ Die SAP-Version von abapGit ist in SAP S/4HANA Cloud Public Edition und im SAP B
 
 ## Neue Benutzer anlegen
 
-Der Demodatengenerator in Klasse `ZCL_ACB_DEMO_GENERATOR` erzeugt für den ausführenden Benutzer einen Benutzerstammsatz in der Datenkbanktabelle `ZACB_USER`. Dieser Eintrag wird für Berechtigungsprüfungen verwendet. Sollten sich weitere Entwickler im gleichen System mit der Anwendung beschäftigen, müssen diese sich wie folgt einen eigenen Stammsatz anlegen.
+Der Demodatengenerator in Klasse `ZCL_ACB_DEMO_GENERATOR` erzeugt für den ausführenden Benutzer einen Benutzerstammsatz in der Datenbanktabelle `ZACB_USER`. Dieser Eintrag wird für Berechtigungsprüfungen verwendet. Sollten sich weitere Entwickler im gleichen System mit der Anwendung beschäftigen, müssen diese sich wie folgt einen eigenen Stammsatz anlegen.
 
 1. Öffnen Sie die Klasse `ZCL_ACB_ADD_USER`, z. B. über die Tastenkombination <kbd>Strg</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd>.
 2. Führen Sie die Klasse über die Funktionstaste <kbd>F9</kbd> als ABAP-Konsolenanwendung aus. Der Benutzerstammsatz wird für den aktuell angemeldeten Benutzer angelegt.
