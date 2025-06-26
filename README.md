@@ -149,7 +149,7 @@ Zur Installation des Repositorys haben Sie zwei Optionen:
 
 > Referenzdokumentation: [Installing Offline Repo](https://docs.abapgit.org/user-guide/projects/offline/install.html)
 
-1. Laden Sie das ZIP-Archiv herunter. Den Downloadlink finden Sie auf der Verlagswebseite unter [www.sap-press.de/6050](www.sap-press.de/6050) auf der Registerkarte _Materialien_ oder auf [https://github.com/abap-kochbuch/abap-kochbuch](https://github.com/abap-kochbuch/abap-kochbuch) über den Button _Code_ und anschließenden Link _Download ZIP_.
+1. Laden Sie das ZIP-Archiv herunter. Den Downloadlink finden Sie auf der Verlagswebseite unter [www.sap-press.de/6050](https://www.sap-press.de/6050) auf der Registerkarte _Materialien_ oder auf [github.com/abap-kochbuch/abap-kochbuch](https://github.com/abap-kochbuch/abap-kochbuch) über den Button _Code_ und anschließenden Link _Download ZIP_.
 2. Starten Sie abapGit (z. B. über Transaktion `SA38` und Report `ZABAPGIT_STANDALONE` oder über den Transaktionscode `ZABAPGIT`).
 3. Klicken Sie in der Repository List oben auf `New Offline`.
 4. Füllen Sie das Formular wie folgt aus.  
