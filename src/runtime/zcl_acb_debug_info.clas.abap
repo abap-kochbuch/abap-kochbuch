@@ -265,11 +265,17 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
       out->write( |  ID: | &&
         tenant->get_id( ) ).
       out->write( |  Subaccount ID: | &&
-        tenant->get_subaccount_id( )->as_string( ) ).
+        COND #( LET sa_id = tenant->get_subaccount_id( ) IN
+                WHEN sa_id IS BOUND
+                THEN sa_id->as_string( ) ) ).
       out->write( |  Global Account ID: | &&
-        tenant->get_global_account_id( )->as_string( ) ).
+        COND #( LET ga_id = tenant->get_global_account_id( ) IN
+                WHEN ga_id IS BOUND
+                THEN ga_id->as_string( ) ) ).
       out->write( |  GUID: | &&
-        tenant->get_guid( )->as( xco_cp_uuid=>format->c36 )->value ).
+        COND #( LET guid = tenant->get_guid( ) IN
+                WHEN guid IS BOUND
+                THEN guid->as( xco_cp_uuid=>format->c36 )->value ) ).
     ELSE.
       out->write( |  System ohne Tenant| ).
     ENDIF.
