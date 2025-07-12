@@ -4,6 +4,9 @@ Hier finden Sie Material zum neuen ABAP-Kochbuch (erschienen 2025 bei SAP PRESS)
 
 <a href="https://www.rheinwerk-verlag.de/das-neue-abap-kochbuch-praktische-programmierloesungen-fuer-fortgeschrittene/"><img src="./img/das-neue-abap-kochbuch.png" alt="Buch Cover des neuen ABAP-Kochbuchs" width="500"/></a>
 
+> __💡 Tipp__  
+> Suchen Sie das Material zum im Jahr 2016 bei SAP Press erschienenen Vorgänger, [_Das ABAP-Kochbuch_](https://www.rheinwerk-verlag.de/das-abap-kochbuch-erfolgsrezepte-fuer-entwickler/)? Dieses finden Sie [hier](https://github.com/abapkochbuch/Sources).
+
 > - [Kapitelbezug](#kapitelbezug)
 > - [Anzeige im Texteditor/der IDE](#anzeige-im-texteditorder-ide)
 > - [Installation im SAP-System](#installation-im-sap-system)
