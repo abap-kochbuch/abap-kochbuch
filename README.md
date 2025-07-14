@@ -5,8 +5,9 @@ Hier finden Sie Material zum neuen ABAP-Kochbuch (erschienen 2025 bei SAP PRESS)
 <a href="https://www.rheinwerk-verlag.de/das-neue-abap-kochbuch-praktische-programmierloesungen-fuer-fortgeschrittene/"><img src="./img/das-neue-abap-kochbuch.png" alt="Buch Cover des neuen ABAP-Kochbuchs" width="500"/></a>
 
 > __💡 Tipp__  
-> Suchen Sie das Material zum im Jahr 2016 bei SAP Press erschienenen Vorgänger, [_Das ABAP-Kochbuch_](https://www.rheinwerk-verlag.de/das-abap-kochbuch-erfolgsrezepte-fuer-entwickler/)? Dieses finden Sie [hier](https://github.com/abapkochbuch/Sources).
+> Suchen Sie das Material zum im Jahr 2016 in der zweiten Auflage bei SAP Press erschienenen Vorgänger, [_Das ABAP-Kochbuch_](https://www.rheinwerk-verlag.de/das-abap-kochbuch-erfolgsrezepte-fuer-entwickler/)? Dieses finden Sie [hier](https://github.com/abapkochbuch/Sources).
 
+> __☰ Inhalte__
 > - [Kapitelbezug](#kapitelbezug)
 > - [Anzeige im Texteditor/der IDE](#anzeige-im-texteditorder-ide)
 > - [Installation im SAP-System](#installation-im-sap-system)
@@ -21,6 +22,9 @@ Hier finden Sie Material zum neuen ABAP-Kochbuch (erschienen 2025 bei SAP PRESS)
 >   - [Nacharbeiten](#nacharbeiten)
 > - [Neue Benutzer anlegen](#neue-benutzer-anlegen)
 > - [Problembehandlung](#problembehandlung)
+>
+> > __💡 Tipp__
+> > In der GitHub Weboberfläche können Sie oben rechts auf ![Icon unsortierte Liste](./list-unordered-16.svg) klicken, um die Navigationsstruktur anzuzeigen.
 
 ## Kapitelbezug
 
