@@ -36,13 +36,12 @@ CLASS lhc_review IMPLEMENTATION.
     LOOP AT entities INTO DATA(entity).
 
 
-      SELECT FROM zacb_review FIELDS COUNT( * )
-      WHERE created_by = @myself AND review_id = @entity-ReviewId.
+      SELECT SINGLE FROM zacb_review
+      FIELDS created_by
+      WHERE review_id = @entity-ReviewId
+      INTO @DATA(created_by).
 
-      IF sy-dbcnt = 0.
-        SELECT FROM zacb_review_d FIELDS COUNT( * )
-        WHERE createdby = @myself AND reviewid = @entity-ReviewId.
-        IF sy-dbcnt = 0.
+      IF created_by IS NOT INITIAL AND created_by <> myself.
           APPEND VALUE #(  %tky =  entity-%tky ) TO failed-review.
 
           APPEND VALUE #( %tky = entity-%tky
@@ -75,20 +74,21 @@ CLASS lhc_ingredient IMPLEMENTATION.
     DATA(myself) = cl_abap_context_info=>get_user_technical_name( ).
     LOOP AT entities INTO DATA(entity).
 
-      READ ENTITIES OF zacb_r_recipe IN LOCAL MODE
-      ENTITY Recipe
-      FIELDS ( CreatedBy ) WITH VALUE #( ( %key = entity-%key ) )
-      RESULT DATA(recipes).
-      LOOP AT recipes INTO DATA(recipe).
+    SELECT SINGLE FROM zacb_ingredient
+    FIELDS created_by
+    WHERE ingredient_id = @entity-IngredientId
+    INTO @DATA(created_by).
 
-        IF myself <> recipe-CreatedBy.
-          APPEND VALUE #(  %tky =  entity-%tky ) TO failed-ingredient.
+        IF created_by IS NOT INITIAL AND created_by <> myself.
+          IF sy-dbcnt = 0.
+            APPEND VALUE #(  %tky =  entity-%tky ) TO failed-ingredient.
 
-          APPEND VALUE #( %tky = entity-%tky
-                          %msg = new_message_with_text(
-                          severity = if_abap_behv_message=>severity-error
-                          text     = 'Sie dürfen hier keine Zutaten hinzufügen...'
-                          ) ) TO reported-ingredient.
+            APPEND VALUE #( %tky = entity-%tky
+                            %msg = new_message_with_text(
+                            severity = if_abap_behv_message=>severity-error
+                            text     = 'Sie dürfen hier keine Zutaten hinzufügen...'
+                            ) ) TO reported-ingredient.
+          ENDIF.
         ENDIF.
       ENDLOOP.
     ENDLOOP.
@@ -415,6 +415,10 @@ CLASS lhc_zacb_r_recipe IMPLEMENTATION.
         APPEND VALUE #( %tky    = recipe-%tky
                         %delete = if_abap_behv=>auth-unauthorized
                       ) TO result.
+      ELSE.
+        APPEND VALUE #( %tky    = recipe-%tky
+                        %delete = if_abap_behv=>auth-allowed
+                      ) TO result.
       ENDIF.
     ENDLOOP.
   ENDMETHOD.
@@ -423,7 +427,11 @@ CLASS lhc_zacb_r_recipe IMPLEMENTATION.
     DATA(myself) = cl_abap_context_info=>get_user_technical_name( ).
     LOOP AT entities INTO DATA(entity).
 
-      IF myself <> entity-CreatedBy.
+      SELECT SINGLE FROM zacb_recipe FIELDS created_by
+      WHERE recipe_id = @entity-RecipeId
+      INTO @DATA(created_by).
+
+      IF created_by IS NOT INITIAL AND created_by <> myself.
         APPEND VALUE #(  %tky =  entity-%tky ) TO failed-recipe.
 
         APPEND VALUE #( %tky = entity-%tky
