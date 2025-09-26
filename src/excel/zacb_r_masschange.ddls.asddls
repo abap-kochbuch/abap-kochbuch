@@ -1,5 +1,5 @@
 @AccessControl.authorizationCheck: #CHECK
-@EndUserText.label: '##GENERATED Massenänderung'
+@EndUserText.label: '##GENERATED Mass Change'
 define root view entity ZACB_R_MassChange
   as select from zacb_massc as MassChange
 {

@@ -52,17 +52,17 @@ CLASS zcl_acb_mail_demo IMPLEMENTATION.
           iv_address = address
           iv_copy    = cl_bcs_mail_message=>cc ).
 
-        mail->set_subject( 'Test neuer API - Beispiel Formatierung' ).
+        mail->set_subject( 'Test new API - sample formatting' ).
 
-        content = '<h1>Hallo,</h1><p>Ich habe eine Formatierung.</p><p><strong>Schönen Tag noch</strong></p>'.
+        content = '<h1>Hello,</h1><p>I have been formatted.</p><p><strong>Have a nice day</strong></p>'.
         mail->set_main( cl_bcs_mail_textpart=>create_text_html( iv_content = content ) ).
 
         mail->send( IMPORTING et_status      = DATA(status)
                               ev_mail_status = DATA(mail_status) ).
 
-        out->write( 'Test: Sende Formatierung' ).
+        out->write( 'Test: Send formatting' ).
         out->write( status ).
-        out->write( |Status der Mails: { mail_status }| ).
+        out->write( |Status of the mails: { mail_status }| ).
 
       CATCH cx_bcs_mail INTO DATA(exception).
         out->write( exception->get_text( ) ).
@@ -82,18 +82,18 @@ CLASS zcl_acb_mail_demo IMPLEMENTATION.
         mail->add_recipient( iv_address = address
                              iv_copy    = cl_bcs_mail_message=>cc ).
 
-        mail->set_subject( 'Test neuer API - Textbeispiel' ).
+        mail->set_subject( 'Test new API - sample text' ).
 
-        content = 'Test'.
+        content = 'This is a normal text'.
         mail->set_main( cl_bcs_mail_textpart=>create_instance( iv_content      = content
-                                                                  iv_content_type = 'text/plain' ) ).
+                                                               iv_content_type = 'text/plain' ) ).
 
         mail->send( IMPORTING et_status      = DATA(status)
                               ev_mail_status = DATA(mail_status) ).
 
-        out->write( 'Test: Sende normale Methode' ).
+        out->write( 'Test: Send normal method' ).
         out->write( status ).
-        out->write( |Status der Mails: { mail_status }| ).
+        out->write( |Status of the mails: { mail_status }| ).
 
       CATCH cx_bcs_mail INTO DATA(exception).
         out->write( exception->get_text( ) ).
@@ -113,26 +113,26 @@ CLASS zcl_acb_mail_demo IMPLEMENTATION.
         mail->add_recipient( iv_address = address
                              iv_copy    = cl_bcs_mail_message=>cc ).
 
-        mail->set_subject( 'Test neuer API - Beispiel-E-Mail mit Anhang' ).
+        mail->set_subject( 'Testing new API - Example email with attachment' ).
 
-        content = 'Mail mit Anhang'.
+        content = 'Mail with attachment'.
         mail->set_main( cl_bcs_mail_textpart=>create_text_plain( iv_content = content ) ).
 
-        mail->add_attachment( cl_bcs_mail_textpart=>create_text_plain( iv_content  = 'Textanhang'
-                                                                       iv_filename = 'TestAnhangText.txt' ) ).
+        mail->add_attachment( cl_bcs_mail_textpart=>create_text_plain( iv_content  = 'Text attachment'
+                                                                       iv_filename = 'TestAttachmentText.txt' ) ).
 
         mail->add_attachment(
             cl_bcs_mail_textpart=>create_instance(
-                iv_content      = '<mail><an>Zusteller</an><von>Sender</von><inhalt>Meine XML!</inhalt></mail>'
+                iv_content      = '<mail><to>Recipient</to><from>Sender</from><content>My XML!</content></mail>'
                 iv_content_type = 'text/xml'
-                iv_filename     = 'TestAnhangXml.xml' ) ).
+                iv_filename     = 'TestAttachmentXml.xml' ) ).
 
         mail->send( IMPORTING et_status      = DATA(status)
                               ev_mail_status = DATA(mail_status) ).
 
-        out->write( 'Test: Sende Mail mit Anhang' ).
+        out->write( 'Test: Send Mail with Attachment' ).
         out->write( status ).
-        out->write( |Status der Mails: { mail_status }| ).
+        out->write( |Status of the mails: { mail_status }| ).
 
       CATCH cx_bcs_mail INTO DATA(exception).
         out->write( exception->get_text( ) ).
@@ -147,15 +147,15 @@ CLASS zcl_acb_mail_demo IMPLEMENTATION.
         DATA(mail_check) = cl_mail_address=>create_instance(
           iv_address_string = mail_address ).
         DATA(address_valid) = mail_check->validate( ).
-        out->write( |E-Mailadresse { mail_address
-          } ist gültig: { address_valid }| ).
+        out->write( |mail address { mail_address
+          } is valid: { address_valid }| ).
 
         mail_address = 'test-example.com'.
         mail_check = cl_mail_address=>create_instance(
           iv_address_string = mail_address ).
         address_valid = mail_check->validate( ).
-        out->write( |E-Mailadresse { mail_address
-          } ist gültig: { address_valid }| ).
+        out->write( |mail address{ mail_address
+          } is valid: { address_valid }| ).
       CATCH cx_bcs_mail INTO DATA(exception).
         out->write( exception->get_text( ) ).
     ENDTRY.

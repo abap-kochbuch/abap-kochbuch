@@ -6,8 +6,8 @@
    <HTTPTEXT>
     <ID>ZACB_USER_IMPORT</ID>
     <VERSION>A</VERSION>
-    <LANG>D</LANG>
-    <SHORTTEXT>Benutzerdatenimport</SHORTTEXT>
+    <LANG>E</LANG>
+    <SHORTTEXT>User Import</SHORTTEXT>
    </HTTPTEXT>
    <HTTPHDL>
     <item>

@@ -1,8 +1,8 @@
 {
   "formatVersion": "1",
   "header": {
-    "description": "Anwendungslog Job",
-    "originalLanguage": "de",
+    "description": "Application log job",
+    "originalLanguage": "en",
     "abapLanguageVersion": "cloudDevelopment"
   },
   "subobjects": [

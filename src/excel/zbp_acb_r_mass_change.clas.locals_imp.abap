@@ -48,21 +48,21 @@ CLASS lhc_masschange IMPLEMENTATION.
          REPORTED reported.
     LOOP AT mass_changes ASSIGNING FIELD-SYMBOL(<mass_change>).
       INSERT VALUE #( %tky                         = <mass_change>-%tky
-                      " Templateerzeugung nur, wenn noch kein Template angehängt ist
+                      " Only generate template if no template is attached
                       %action-generateTemplate     = COND #(
                             WHEN <mass_change>-TemplateFilename IS INITIAL
                             THEN if_abap_behv=>fc-o-enabled
                             ELSE if_abap_behv=>fc-o-disabled )
-                      " Verarbeitung nur, wenn Verarbeitungsdatei angehängt ist und
-                      " Instanz aktiv gespeichert wurde und noch nicht verarbeitet
+                      " Processing only if processing file is attached and instance
+                      " is active and not already processed
                       %action-processFile          = COND #(
                                WHEN <mass_change>-ProcessingFilename IS NOT INITIAL
                                 AND <mass_change>-%is_draft           = if_abap_behv=>mk-off
                                 AND <mass_change>-ProcessingStatus    = '2'
                                THEN if_abap_behv=>fc-o-enabled
                                ELSE if_abap_behv=>fc-o-disabled )
-                      " Verarbeitungsdatei anhängen nur, wenn noch nicht verarbeitet und
-                      " Template vorhanden
+                      " Upload processing file only if not already processed and
+                      " template exists
                       %field-ProcessingFileContent = COND #(
                           WHEN <mass_change>-TemplateFilename IS NOT INITIAL
                            AND (    <mass_change>-ProcessingStatus = '1'
@@ -77,7 +77,7 @@ CLASS lhc_masschange IMPLEMENTATION.
     DATA(document) = xco_cp_xlsx=>document->empty( )->write_access( ).
 
     DATA(sheet) = document->get_workbook( )->worksheet->at_position( 1 ).
-    sheet->set_name( 'Rezepte' ).
+    sheet->set_name( 'Recipes' ).
 
     SELECT FROM ZACB_R_Recipe
       FIELDS RecipeId, RecipeName, RecipeText
@@ -87,7 +87,7 @@ CLASS lhc_masschange IMPLEMENTATION.
     add_table_to_worksheet( table = recipes
                             sheet = sheet ).
 
-    sheet = document->get_workbook( )->add_new_sheet( 'Zutaten' ).
+    sheet = document->get_workbook( )->add_new_sheet( 'Ingredients' ).
 
     SELECT FROM ZACB_R_Ingredient
       FIELDS RecipeId,
@@ -137,7 +137,7 @@ CLASS lhc_masschange IMPLEMENTATION.
           process_single_file( <mass_change>-ProcessingFileContent ).
           INSERT VALUE #( %tky = <mass_change>-%tky
                           %msg = new_message_with_text( severity = if_abap_behv_message=>severity-success
-                                                        text     = |Massenänderung wurde erfolgreich durchgeführt| ) )
+                                                        text     = |Mass change was successfully completed| ) )
                  INTO TABLE reported-masschange.
           MODIFY ENTITIES OF ZACB_R_MassChange IN LOCAL MODE
                  ENTITY MassChange
@@ -209,16 +209,16 @@ CLASS lhc_masschange IMPLEMENTATION.
 
   METHOD process_single_file.
     DATA(document) = xco_cp_xlsx=>document->for_file_content( file_content )->read_access( ).
-    DATA(sheet) = document->get_workbook( )->worksheet->for_name( 'Rezepte' ).
+    DATA(sheet) = document->get_workbook( )->worksheet->for_name( 'Recipes' ).
     IF NOT sheet->exists( ).
-      cl_message_helper=>set_msg_vars_for_clike( |Arbeitsblatt Rezepte existiert nicht| ).
+      cl_message_helper=>set_msg_vars_for_clike( |The "Recipes" worksheet does not exist| ).
       RAISE EXCEPTION TYPE lcx_processing_error USING MESSAGE.
     ENDIF.
 
     DATA(recipes) = create_table_for_sheet( view_entity = 'ZACB_R_Recipe'
                                             sheet       = sheet ).
     IF recipes IS NOT BOUND.
-      cl_message_helper=>set_msg_vars_for_clike( |Format invalide| ).
+      cl_message_helper=>set_msg_vars_for_clike( |Format invalid| ).
       RAISE EXCEPTION TYPE lcx_processing_error USING MESSAGE.
     ENDIF.
 
@@ -227,9 +227,9 @@ CLASS lhc_masschange IMPLEMENTATION.
       )->get_pattern( ).
     sheet->select( from_second_row )->row_stream( )->operation->write_to( recipes )->execute( ).
 
-    sheet = document->get_workbook( )->worksheet->for_name( 'Zutaten' ).
+    sheet = document->get_workbook( )->worksheet->for_name( 'Ingredients' ).
     IF NOT sheet->exists( ).
-      cl_message_helper=>set_msg_vars_for_clike( |Arbeitsblatt Zutaten existiert nicht| ).
+      cl_message_helper=>set_msg_vars_for_clike( |The "Ingredients" worksheet does not exist| ).
       RAISE EXCEPTION TYPE lcx_processing_error USING MESSAGE.
     ENDIF.
 
@@ -247,7 +247,7 @@ CLASS lhc_masschange IMPLEMENTATION.
            WITH CORRESPONDING #( ingredients->* )
            FAILED DATA(failed).
     IF failed IS NOT INITIAL.
-      cl_message_helper=>set_msg_vars_for_clike( |Fehler bei Massenänderung| ).
+      cl_message_helper=>set_msg_vars_for_clike( |Error on mass change| ).
       RAISE EXCEPTION TYPE lcx_processing_error USING MESSAGE.
     ENDIF.
   ENDMETHOD.
@@ -269,7 +269,7 @@ CLASS lhc_masschange IMPLEMENTATION.
                                            EXCEPTIONS type_not_found = 1
                                                       OTHERS         = 2 ).
       IF sy-subrc <> 0.
-        cl_message_helper=>set_msg_vars_for_clike( |Feld { view_entity }-{ column_header } unbekannt| ).
+        cl_message_helper=>set_msg_vars_for_clike( |Field { view_entity }-{ column_header } unknown| ).
         RAISE EXCEPTION TYPE lcx_processing_error USING MESSAGE.
       ENDIF.
 

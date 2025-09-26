@@ -1,8 +1,8 @@
 @Metadata.layer: #CORE
 @UI: {
   headerInfo: {
-    typeName: 'Rezept',
-    typeNamePlural: 'Rezepte'
+    typeName: 'Recipe',
+    typeNamePlural: 'Recipes'
   }
 }
 annotate view ZACB_C_Recipe with
@@ -10,7 +10,7 @@ annotate view ZACB_C_Recipe with
   @UI.facet: [ {
     id: 'idIdentification',
     type: #IDENTIFICATION_REFERENCE,
-    label: 'Rezept',
+    label: 'Recipe',
     position: 10
   },
   {

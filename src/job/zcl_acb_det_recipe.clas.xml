@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_ACB_DET_RECIPE</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Rezeptermittlung</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Recipe determination</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

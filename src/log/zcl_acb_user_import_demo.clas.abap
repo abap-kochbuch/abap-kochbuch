@@ -9,10 +9,12 @@ ENDCLASS.
 
 CLASS zcl_acb_user_import_demo IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
-    " Hier wird eine Anfrage an den HTTP-Service
-    " ZACB_USER_IMPORT mit Festwerten 'simuliert'.
-    " So lässt sich im Debugger das Coding analysieren, ohne den
-    " HTTP-Service selbst aufrufen und ggf. berechtigen zu müssen.
+    " In this method a call to the HTTP Service
+    " ZACB_USER_IMPORT is 'simulated' using fixed
+    " values.
+    " This enables you to analyze the code in the
+    " debugger without needing to call the service
+    " yourself and request authorizations for it.
 
     DATA(csv) = concat_lines_of(
       table = VALUE string_table( ( |{ cl_abap_context_info=>get_user_technical_name( ) };Manfred;Mustermann;;X;X| )

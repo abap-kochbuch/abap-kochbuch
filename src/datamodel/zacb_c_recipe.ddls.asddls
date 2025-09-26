@@ -1,6 +1,6 @@
 @AccessControl.authorizationCheck: #CHECK
 @Metadata.allowExtensions: true
-@EndUserText.label: 'Projectionsentitätat RezeptE'
+@EndUserText.label: 'Projection Entity Recipe'
 @ObjectModel.semanticKey: [ 'RecipeID' ]
 define root view entity ZACB_C_Recipe
   provider contract transactional_query

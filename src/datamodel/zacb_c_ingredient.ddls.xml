@@ -4,8 +4,8 @@
   <asx:values>
    <DDLS>
     <DDLNAME>ZACB_C_INGREDIENT</DDLNAME>
-    <DDLANGUAGE>D</DDLANGUAGE>
-    <DDTEXT>Projektionsentität Zutat</DDTEXT>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DDTEXT>Projection Entity Ingredient</DDTEXT>
     <SOURCE_TYPE>P</SOURCE_TYPE>
     <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
    </DDLS>

@@ -29,14 +29,14 @@ CLASS zcl_acb_det_recipe IMPLEMENTATION.
         datatype      = 'C'
         selname       = para_lastdays
         kind          = if_apj_dt_exec_object=>parameter
-        param_text    = 'Ermittlungstage'
+        param_text    = 'Determination days'
         length        = 2
         mandatory_ind = abap_true )
         (
         datatype      = 'C'
         selname       = para_lastfourweeks
         kind          = if_apj_dt_exec_object=>parameter
-        param_text    = 'Letzte 4 Wochen'
+        param_text    = 'Last 4 weeks'
         length        = 1
         checkbox_ind  = abap_true ) ).
 
@@ -88,7 +88,7 @@ CLASS zcl_acb_det_recipe IMPLEMENTATION.
 
         IF sy-subrc <> 0.
           log_message( severity     = if_bali_constants=>c_severity_error
-                       message_text = 'Keine Daten ermittelt' ).
+                       message_text = 'No data found' ).
         ENDIF.
 
         LOOP AT recipes INTO DATA(recipe).
@@ -98,7 +98,7 @@ CLASS zcl_acb_det_recipe IMPLEMENTATION.
                        message_text = CONV #( recipe-recipe_name ) ).
         ENDLOOP.
         log_message( severity     = if_bali_constants=>c_severity_status
-                     message_text = 'Ende' ).
+                     message_text = 'End' ).
 
         cl_bali_log_db=>get_instance( )->save_log( log                        = log
                                                    assign_to_current_appl_job = abap_true ).

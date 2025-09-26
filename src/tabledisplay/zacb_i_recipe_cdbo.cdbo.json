@@ -1,8 +1,8 @@
 {
   "formatVersion": "1",
   "header": {
-    "description": "Kundendatenbrowserobject Rezept",
-    "originalLanguage": "de",
+    "description": "Customer Data Browser Object Recipe",
+    "originalLanguage": "en",
     "abapLanguageVersion": "cloudDevelopment"
   },
   "generalInformation": {

@@ -33,14 +33,14 @@ CLASS zcl_acb_newsletter IMPLEMENTATION.
         datatype      = 'C'
         selname       = para_lastdays
         kind          = if_apj_dt_exec_object=>parameter
-        param_text    = 'Ermittlungstage'
+        param_text    = 'Determination Days'
         length        = 2
         mandatory_ind = abap_true )
         (
         datatype      = 'C'
         selname       = para_lastfourweeks
         kind          = if_apj_dt_exec_object=>parameter
-        param_text    = 'Letzte 4 Wochen'
+        param_text    = 'Last 4 weeks'
         length        = 1
         checkbox_ind  = abap_true ) ).
 
@@ -75,18 +75,18 @@ CLASS zcl_acb_newsletter IMPLEMENTATION.
         log->set_header( header ).
 
         log_message( severity     = if_bali_constants=>c_severity_information
-                     message_text = 'Newsletter Versand Start' ).
+                     message_text = 'Starting Send Newsletter' ).
 
         DATA(newsletter) = NEW zcl_acb_mail_newsletter( days ).
         newsletter->send( ).
 
         log_message( severity     = if_bali_constants=>c_severity_information
-                     message_text = 'Newsletter Versand erfolgreich' ).
+                     message_text = 'Newsletter Send Success' ).
 
         cl_bali_log_db=>get_instance( )->save_log( log                        = log
                                                    assign_to_current_appl_job = abap_true ).
       CATCH cx_bali_runtime cx_uuid_error cx_bcs_mail zcx_acb_newsletter_error INTO DATA(error).
-        " Fix für Installationsbug hinsichtlich Reihenfolge (https://github.com/abapGit/abapGit/issues/7240)
+        "Fix for installation bug regarding sequence (https://github.com/abapGit/abapGit/issues/7240)
         DATA(message_class) = 'ZACB_NEWSLETTER'.
         RAISE EXCEPTION TYPE cx_apj_rt_content MESSAGE ID message_class NUMBER 003 WITH error->get_text(  ).
     ENDTRY.

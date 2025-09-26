@@ -11,10 +11,10 @@
     <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
    </ATTRIBUTES>
    <TEXT>
-    <LANGU>D</LANGU>
+    <LANGU>E</LANGU>
     <OBJECT>ZACB_RECIP</OBJECT>
-    <TXT>Rezept-Id</TXT>
-    <TXTSHORT>Rezept-Id</TXTSHORT>
+    <TXT>Recipe Id</TXT>
+    <TXTSHORT>Recipe-Id</TXTSHORT>
    </TEXT>
   </asx:values>
  </asx:abap>

@@ -33,7 +33,7 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD display_debug_info.
-    out->write( |🧑‍💻 Debug-Informationen für ABAP Kochbuch 👨‍🍳| ).
+    out->write( |🧑‍💻 Debug Information for ABAP Cookbook 👨‍🍳| ).
 
     output_table_entry_count( ).
     output_system_fields( ).
@@ -45,27 +45,27 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD output_table_entry_count.
-    out->write( |🧮 Füllstand der Datenbanktabellen| ).
+    out->write( |🧮 Utilization of database tables| ).
 
     SELECT FROM zacb_recipe FIELDS COUNT(*).
-    out->write( |Anzahl Rezepte: { sy-dbcnt NUMBER = USER }| ).
+    out->write( |Number of recipes: { sy-dbcnt NUMBER = USER }| ).
 
     SELECT FROM zacb_ingredient FIELDS COUNT(*).
-    out->write( |Anzahl Zutaten: { sy-dbcnt NUMBER = USER }| ).
+    out->write( |Number of ingredients: { sy-dbcnt NUMBER = USER }| ).
 
     SELECT FROM zacb_review FIELDS COUNT(*).
-    out->write( |Anzahl Reviews: { sy-dbcnt NUMBER = USER }| ).
+    out->write( |Number of reviews: { sy-dbcnt NUMBER = USER }| ).
 
     SELECT FROM zacb_user FIELDS COUNT(*).
-    out->write( |Anzahl Benutzer: { sy-dbcnt NUMBER = USER }| ).
+    out->write( |Number of users: { sy-dbcnt NUMBER = USER }| ).
 
 *    SELECT FROM zacb_label FIELDS COUNT(*).
-*    out->write( |Anzahl Labeles: { sy-dbcnt NUMBER = USER }| ).
+*    out->write( |Number of labels: { sy-dbcnt NUMBER = USER }| ).
 
   ENDMETHOD.
 
   METHOD output_system_fields.
-    out->write( |👀 Systemfelder| ).
+    out->write( |👀 System fields| ).
     output_abap_cloud_system_flds( ).
     output_standard_system_fields( ).
     output_internal_system_fields( ).
@@ -73,71 +73,71 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD output_time_info.
-    out->write( |🕰️ Zeitinformationen| ).
+    out->write( |🕰️ Time information| ).
 
-    out->write( |Datum in Systemzeit laut sy-datum: { sy-datum DATE = USER }| ).
-    out->write( |Uhrzeit in Systemzeit laut sy-uzeit: { sy-uzeit TIME = USER }| ).
+    out->write( |Date in system time according to sy-datum: { sy-datum DATE = USER }| ).
+    out->write( |Time in system time according to sy-uzeit: { sy-uzeit TIME = USER }| ).
 
-    " Zeitreise, gestern war schöner
-*    sy-datum = sy-datum - 1. " Syntaxfehler
+    " Timetravel, yesterday was better
+*    sy-datum = sy-datum - 1. " Syntax error
 
-    out->write( |Datum in UTC laut cl_abap_context_info: | &&
+    out->write( |Date in UTC according to cl_abap_context_info: | &&
       |{ cl_abap_context_info=>get_system_date( ) DATE = USER }| ).
-    out->write( |Uhrzeit in UTC laut cl_abap_context_info: | &&
+    out->write( |Time in UTC according to cl_abap_context_info: | &&
       |{ cl_abap_context_info=>get_system_time( ) TIME = USER }| ).
 
     DATA now TYPE timestampl.
     GET TIME STAMP FIELD now.
-    out->write( |Zeitstempel in DEC(21,7) laut GET TIME STAMP: | &&
+    out->write( |Timestamp in DEC(21,7) according to GET TIME STAMP: | &&
       |{ now TIMESTAMP = USER TIMEZONE = 'UTC' }| ).
 
     DATA(now_utclong) = utclong_current( ).
-    out->write( |Zeitstempel in utclong laut utclong_current: | &&
+    out->write( |Timestamp in utclong according to utclong_current: | &&
       |{ now TIMESTAMP = USER TIMEZONE = 'UTC' }| ).
 
     DATA(now_one_line) = cl_abap_tstmp=>utclong2tstmp( utclong_current( ) ).
-    out->write( |Zeitstempel in DEC(21,7) laut utclong_current: | &&
+    out->write( |Timestamp in DEC(21,7) according to utclong_current: | &&
       |{ now_one_line TIMESTAMP = USER TIMEZONE = 'UTC' }| ).
 
     DATA(system_date) = xco_cp=>sy->date( xco_cp_time=>time_zone->utc ).
-    out->write( |Datum in UTC laut XCO (string): | &&
+    out->write( |Date in UTC according to XCO (string): | &&
       system_date->as( xco_cp_time=>format->abap )->value ).
     DATA(system_date_d) = EXACT d( system_date->as( xco_cp_time=>format->abap )->value ).
-    out->write( |Datum in UTC laut XCO (d): | &&
+    out->write( |Date in UTC according to XCO (d): | &&
       |{ system_date_d DATE = USER }| ).
 
     DATA(tomorrow) = system_date->add( iv_day = 1 ).
-    out->write( |Morgen in UTC laut XCO in...| ).
+    out->write( |Tomorrow in UTC according to XCO as...| ).
     out->write( |  string: | &&
       tomorrow->as( xco_cp_time=>format->abap )->value ).
     out->write( |  ISO 8601: | &&
       tomorrow->as( xco_cp_time=>format->iso_8601_basic )->value ).
-    out->write( |  ISO 8601 erweitert: | &&
+    out->write( |  ISO 8601 extended: | &&
       tomorrow->as( xco_cp_time=>format->iso_8601_extended )->value ).
 
     DATA(system_time) = xco_cp=>sy->time( xco_cp_time=>time_zone->utc ).
-    out->write( |Uhrzeit in UTC laut XCO (string): | &&
+    out->write( |Time in UTC according to XCO (string): | &&
       system_time->as( xco_cp_time=>format->abap )->value ).
     DATA(system_time_t) = EXACT t(
       system_time->as( xco_cp_time=>format->abap )->value ).
-    out->write( |Uhrzeit in UTC laut XCO (t): | &&
+    out->write( |Time in UTC according to XCO (t): | &&
       |{ system_time_t TIME = USER }| ).
-    out->write( |Uhrzeit in UTC laut XCO (ISO 8601): | &&
+    out->write( |Time in UTC according to XCO (ISO 8601): | &&
       system_time->as( xco_cp_time=>format->iso_8601_basic )->value ).
-    out->write( |Uhrzeit in UTC laut XCO (ISO 8601 erweitert): | &&
+    out->write( |Time in UTC according to XCO (ISO 8601 extended): | &&
       system_time->as( xco_cp_time=>format->iso_8601_extended )->value ).
 
     DATA(moment) = xco_cp=>sy->moment( xco_cp_time=>time_zone->utc ).
-    out->write( |Zeitstempel in UTC laut XCO (string): | &&
+    out->write( |Timestamp in UTC according to XCO (string): | &&
       moment->as( xco_cp_time=>format->abap )->value ).
 
     DATA(now_xco) = EXACT timestamp(
       moment->as( xco_cp_time=>format->abap )->value ).
-    out->write( |Zeitstempel in UTC laut XCO (timestamp): | &&
+    out->write( |Timestamp in UTC according to XCO (timestamp): | &&
       |{ now_xco TIMESTAMP = USER TIMEZONE = 'UTC' }| ).
-    out->write( |Zeitstempel in UTC laut XCO (ISO 8601): | &&
+    out->write( |Timestamp in UTC according to XCO (ISO 8601): | &&
       moment->as( xco_cp_time=>format->iso_8601_basic )->value ).
-    out->write( |Zeitstempel in UTC laut XCO (ISO 8601 erweitert): | &&
+    out->write( |Timestamp in UTC according to XCO (ISO 8601 extended): | &&
       moment->as( xco_cp_time=>format->iso_8601_extended )->value ).
 
     DATA(tomorrow_3pm) = tomorrow->get_moment(
@@ -147,23 +147,23 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
     DATA(in_24_hours) = moment->add( iv_hour = '24' ).
     DATA(interval) = moment->interval_to( tomorrow_3pm ).
     IF interval->contains( in_24_hours ).
-      out->write( |Bis morgen 15 Uhr sind es mehr als 24h| ).
+      out->write( |There are more than 24 hours until 3pm tomorrow| ).
     ELSE.
-      out->write( |Bis morgen 15 Uhr sind es weniger als 24h| ).
+      out->write( |There are less than 24 hours until 3pm tomorrow| ).
     ENDIF.
   ENDMETHOD.
 
   METHOD output_user_info.
     DATA business_partner TYPE string.
 
-    out->write( |🧑 Benutzerinformationen| ).
+    out->write( |🧑 User information| ).
 
-    out->write( |Angemeldeter Benutzer laut sy-uname: { sy-uname }| ).
+    out->write( |Logged-in user according to sy-uname: { sy-uname }| ).
 
-    out->write( |Angemeldeter Benutzer laut cl_abap_context_info: | &&
+    out->write( |Logged-in user according to cl_abap_context_info: | &&
       cl_abap_context_info=>get_user_technical_name( ) ).
 
-    out->write( |Weitere Benutzerinformationen von cl_abap_context_info:| ).
+    out->write( |Additional user information according to cl_abap_context_info:| ).
     out->write( |  Alias: | &&
       cl_abap_context_info=>get_user_alias( ) ).
 
@@ -172,42 +172,42 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
       CATCH cx_abap_context_info_error INTO DATA(bp_error).
         business_partner = bp_error->get_text( ).
     ENDTRY.
-    out->write( |  Geschäftspartner: { business_partner }| ).
+    out->write( |  Business partner: { business_partner }| ).
 
     TRY.
-        out->write( |  Beschreibung: | &&
+        out->write( |  Description: | &&
           cl_abap_context_info=>get_user_description( ) ).
-        out->write( |  Formatierter Name: | &&
+        out->write( |  Formatted name: | &&
           cl_abap_context_info=>get_user_formatted_name( ) ).
-        out->write( |  Zeitzone: | &&
+        out->write( |  Timezone: | &&
           cl_abap_context_info=>get_user_time_zone( ) ).
-        out->write( |  Sprache: | &&
+        out->write( |  Language: | &&
           cl_abap_context_info=>get_user_language_abap_format( ) ).
 
-        out->write( |Spezifische Sprache von { sy-uname }: | &&
+        out->write( |Specific language: { sy-uname }: | &&
           cl_abap_context_info=>get_user_language_abap_format( sy-uname ) ).
       CATCH cx_abap_context_info_error INTO DATA(context_error).
         out->write( context_error ).
     ENDTRY.
 
-    out->write( |Angemeldeter Benutzer laut XCO: | &&
+    out->write( |Logged-in user according to XCO: | &&
       xco_cp=>sy->user( )->name ).
 
-    out->write( |Benutzerkennung spezifischer User XCO: | &&
+    out->write( |User ID of specific user XCO: | &&
       xco_cp_system=>user( sy-uname )->name ).
   ENDMETHOD.
 
   METHOD output_technical_run_time_info.
-    out->write( |💻 Technische Laufzeitinformationen| ).
+    out->write( |💻 Technical runtime information| ).
 
     out->write( |System: { sy-sysid }| ).
-    out->write( |Mandant: { sy-mandt }| ).
+    out->write( |Client: { sy-mandt }| ).
     out->write( |Program: { sy-repid }| ).
 
-    out->write( |Sprache: { sy-langu }| ).
+    out->write( |Language: { sy-langu }| ).
 
     DATA(language) = xco_cp=>sy->language( ).
-    out->write( |Sprache (XCO): { language->get_name( ) } | &&
+    out->write( |Language (XCO): { language->get_name( ) } | &&
       |({ language->value }/| &&
       |{ language->as( xco_cp_language=>format->iso_639 ) })| ).
 
@@ -222,7 +222,7 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD output_messages.
-    out->write( |📰 Meldungen | ).
+    out->write( |📰 Messages | ).
 
     check_tables_not_empty(
       EXCEPTIONS
@@ -240,7 +240,7 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
     SELECT SINGLE FROM zacb_recipe
       FIELDS @abap_true
       INTO @DATA(not_empty).
-    IF not_empty = abap_false OR 1 = 1. " Für Demozwecke immer auslösen
+    IF not_empty = abap_false OR 1 = 1. " Always raise for demo purposes
       MESSAGE e001(zacb_common)
          WITH 'ZACB_RECIPE' 'ZCL_ACB_DEMO_GENERATOR'
          RAISING data_not_generated.
@@ -248,9 +248,9 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD output_system_info.
-    out->write( |ℹ️ System Informationen| ).
+    out->write( |ℹ️ System information| ).
 
-    out->write( |Tenant Informationen 🌤️| ).
+    out->write( |Tenant information 🌤️| ).
     DATA(tenant) = xco_cp=>current->tenant( ).
     IF tenant IS BOUND.
       DATA(ui_url) = tenant->get_url( xco_cp_tenant=>url_type->ui ).
@@ -260,7 +260,7 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
           |{ ui_url->get_host( ) }:| &&
           |{ ui_url->get_port( ) }| ).
       ELSE.
-        out->write( |  UI URL: nicht verfügbar| ).
+        out->write( |  UI URL: not available| ).
       ENDIF.
       out->write( |  ID: | &&
         tenant->get_id( ) ).
@@ -277,7 +277,7 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
                 WHEN guid IS BOUND
                 THEN guid->as( xco_cp_uuid=>format->c36 )->value ) ).
     ELSE.
-      out->write( |  System ohne Tenant| ).
+      out->write( |  System without tenant| ).
     ENDIF.
 
     DATA home_component TYPE REF TO if_xco_software_component.
@@ -299,26 +299,26 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
     DATA(component_text) = COND #(
       WHEN home_component IS BOUND
       THEN home_component->name
-      ELSE |konnte nicht eindeutig ermittelt werden| ).
+      ELSE |could not be determined| ).
 
-    out->write( |HOME Softwarekomponente im System: { component_text }| ).
+    out->write( |HOME software component in this system: { component_text }| ).
 
     DATA(basis) = xco_cp_system=>software_component->for_name( 'SAP_BASIS' ).
     IF basis->get_extendability( ) = xco_cp_software_component=>extendability->extendable.
-      out->write( |Softwarekomponente { basis->name } ist erweiterbar| ).
+      out->write( |Software component { basis->name } is extensible| ).
     ELSE.
-      out->write( |Softwarekomponente { basis->name } ist nicht erweiterbar| ).
+      out->write( |Software component { basis->name } is not extensible| ).
     ENDIF.
 
-    out->write( |Installierte Sprachen 🗣️| ).
+    out->write( |Installed languages 🗣️| ).
 
-    out->write( |  Mit XCO:| ).
+    out->write( |  According to XCO:| ).
     LOOP AT xco_cp_system=>languages->installed->get( ) INTO DATA(language).
       out->write( |  { language->as( xco_cp_language=>format->iso_639 ) }: | &&
         language->get_long_text_description( ) ).
     ENDLOOP.
 
-    out->write( |  Mit CDS:| ).
+    out->write( |  According to CDS:| ).
     SELECT FROM I_Language
       FIELDS LanguageISOCode,
              \_Text[ ONE TO ONE WHERE Language = @sy-langu ]-LanguageName
@@ -330,7 +330,7 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD output_abap_cloud_system_flds.
-    out->write( |Freigegebene Systemfelder in ABAP Cloud:| ).
+    out->write( |Released system fields in ABAP Cloud:| ).
     out->write( |  sy-batch: { sy-batch }| ).
     out->write( |  sy-dbcnt: { sy-dbcnt }| ).
     out->write( |  sy-fdpos: { sy-fdpos }| ).
@@ -351,7 +351,7 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD output_standard_system_fields.
-    out->write( |Zusätzliche freigegebene Systemfelder in Standard ABAP:| ).
+    out->write( |Additional released system fields in Standard ABAP:| ).
     out->write( |  sy-abcde: { sy-abcde }| ).
     out->write( |  sy-binpt: { sy-binpt }| ).
     out->write( |  sy-calld: { sy-calld }| ).
@@ -409,7 +409,7 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD output_internal_system_fields.
-    out->write( |Interne Systemfelder:| ).
+    out->write( |Internal system fields:| ).
     out->write( |  sy-cfwae: { sy-cfwae }| ).
     out->write( |  sy-chwae: { sy-chwae }| ).
     out->write( |  sy-debug: { sy-debug }| ).
@@ -447,7 +447,7 @@ CLASS zcl_acb_debug_info IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD output_obsolete_system_fields.
-    out->write( |Obsolete Systemfelder:| ).
+    out->write( |Obsolete system fields:| ).
     out->write( |  sy-appli: { sy-appli }| ).
     out->write( |  sy-batzd: { sy-batzd }| ).
     out->write( |  sy-batzm: { sy-batzm }| ).

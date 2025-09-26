@@ -4,21 +4,21 @@
   <asx:values>
    <T100A>
     <ARBGB>ZACB_COMMON</ARBGB>
-    <MASTERLANG>D</MASTERLANG>
-    <STEXT>Nachrichtenklasse Kochbuch</STEXT>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message Class Recipe Portal</STEXT>
    </T100A>
    <T100>
     <T100>
-     <SPRSL>D</SPRSL>
+     <SPRSL>E</SPRSL>
      <ARBGB>ZACB_COMMON</ARBGB>
      <MSGNR>000</MSGNR>
-     <TEXT>Rezept &amp;1 wird durch &amp;2 bearbeitet</TEXT>
+     <TEXT>Recipe &amp;1 is processed by  &amp;2</TEXT>
     </T100>
     <T100>
-     <SPRSL>D</SPRSL>
+     <SPRSL>E</SPRSL>
      <ARBGB>ZACB_COMMON</ARBGB>
      <MSGNR>001</MSGNR>
-     <TEXT>Tabelle &amp;1 ist leer (Tipp: Generator &amp;2 ausführen)</TEXT>
+     <TEXT>Table &amp;1 is empty (Tip: Run &amp;2 generator)</TEXT>
     </T100>
    </T100>
   </asx:values>

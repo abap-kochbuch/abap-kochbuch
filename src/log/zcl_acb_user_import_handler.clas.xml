@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_ACB_USER_IMPORT_HANDLER</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Handler für Benutzerdatenimport</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Handler for User Import</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

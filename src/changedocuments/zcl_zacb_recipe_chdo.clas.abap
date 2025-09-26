@@ -48,7 +48,7 @@ CLASS ZCL_ZACB_RECIPE_CHDO IMPLEMENTATION.
   method WRITE.
 *"----------------------------------------------------------------------
 *"         this WRITE method is generated for object ZACB_RECIPE
-*"         never change it manually, please!        :20.05.2025
+*"         never change it manually, please!        :18.07.2025
 *"         All changes will be overwritten without a warning!
 *"
 *"         CX_CHDO_WRITE_ERROR is used for error handling

@@ -1,4 +1,4 @@
-@EndUserText.label: 'CDS-Entität Zutat'
+@EndUserText.label: 'CDS Entity Ingredient'
 define view entity ZACB_R_Ingredient
   as select from zacb_ingredient
   association to parent ZACB_R_Recipe as _Recipe on $projection.RecipeId = _Recipe.RecipeId

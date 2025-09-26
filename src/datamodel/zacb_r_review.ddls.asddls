@@ -1,4 +1,4 @@
-@EndUserText.label: 'CDS-Entität Zutat'
+@EndUserText.label: 'CDS Entity Review'
 
 define view entity ZACB_R_Review
   as select from zacb_review

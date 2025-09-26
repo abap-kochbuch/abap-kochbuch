@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCX_ACB_NEWSLETTER_ERROR</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Fehler Newsletter</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Error Newsletter</DESCRIPT>
     <CATEGORY>40</CATEGORY>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>

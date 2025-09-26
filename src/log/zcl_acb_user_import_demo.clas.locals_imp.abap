@@ -263,7 +263,7 @@ CLASS lcl_response IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD if_web_http_response~num_multiparts.
-    RAISE cx_web_message_error. " Großartig
+    RAISE cx_web_message_error. " Amazing
   ENDMETHOD.
 
   METHOD if_web_http_response~server_cache_expire_rel.

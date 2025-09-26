@@ -1,4 +1,4 @@
-"! <p class="shorttext synchronized" lang="de">Fehlerklasse für nicht gefundene Rezepte</p>
+"! <p class="shorttext synchronized" lang="en">Error class for recipes not found</p>
 CLASS zcx_acb_recipe_not_found DEFINITION
   PUBLIC
   INHERITING FROM cx_static_check

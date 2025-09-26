@@ -4,8 +4,8 @@
   <asx:values>
    <SKTD>
     <METADATA>
-     <DESCRIPTION>Dokumentation für ZACB_I_RECIPE_DOCU</DESCRIPTION>
-     <LANGUAGE>DE</LANGUAGE>
+     <DESCRIPTION>Documentation for ZACB_I_RECIPE_DOCU</DESCRIPTION>
+     <LANGUAGE>EN</LANGUAGE>
      <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
     </METADATA>
     <REF_OBJECT>
@@ -19,7 +19,7 @@
        <URI>/sap/bc/adt/ddic/ddl/sources/zacb_i_recipe_docu</URI>
        <TYPE>DDLS/DF</TYPE>
        <NAME>ZACB_I_RECIPE_DOCU</NAME>
-       <DESCRIPTION>Rezept Doku</DESCRIPTION>
+       <DESCRIPTION>Recipe Documentation</DESCRIPTION>
       </REF>
       <TEXT>RGllIERhdGVuZGVmaW5pdGlvbiAqKlpBQ0JfSV9SRUNJUEVfRE9DVSoqIGRpZW50IGRhenUgdW50
 ZXJzY2hpZWRsaWNoZSAqRm9ybWF0aWVydW5nc29wdGlvbmVuKiBkYXJ6dXN0ZWxsZW4KRGllIERh
@@ -31,7 +31,7 @@ CiogW1pBQ0JfUkVDSVBFX05BTUVdKERPTUE6WkFDQl9SRUNJUEVfTkFNRSkKCgo=</TEXT>
         <HREF>/sap/bc/adt/repository/informationsystem/elementinfo?path=zacb_i_recipe_docu&amp;type=ddls/df</HREF>
         <REL>http://www.sap.com/adt/relations/elementinfo</REL>
         <TYPE>application/vnd.sap.adt.elementinfo+xml</TYPE>
-        <TITLE>Elementinformationen anzeigen</TITLE>
+        <TITLE>Show Element Information</TITLE>
        </item>
       </LINKS>
       <SHORTTEXT_OBLIGATION>forbidden</SHORTTEXT_OBLIGATION>

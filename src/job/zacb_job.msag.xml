@@ -4,27 +4,27 @@
   <asx:values>
    <T100A>
     <ARBGB>ZACB_JOB</ARBGB>
-    <MASTERLANG>D</MASTERLANG>
-    <STEXT>Nachrichten Job</STEXT>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Messages Job</STEXT>
    </T100A>
    <T100>
     <T100>
-     <SPRSL>D</SPRSL>
+     <SPRSL>E</SPRSL>
      <ARBGB>ZACB_JOB</ARBGB>
      <MSGNR>000</MSGNR>
-     <TEXT>Benutzer ist nicht berechtigt</TEXT>
+     <TEXT>User is not authorized</TEXT>
     </T100>
     <T100>
-     <SPRSL>D</SPRSL>
+     <SPRSL>E</SPRSL>
      <ARBGB>ZACB_JOB</ARBGB>
      <MSGNR>001</MSGNR>
-     <TEXT>Ermittlungstage muss größer 0 sein</TEXT>
+     <TEXT>Determination days must be greater than 0</TEXT>
     </T100>
     <T100>
-     <SPRSL>D</SPRSL>
+     <SPRSL>E</SPRSL>
      <ARBGB>ZACB_JOB</ARBGB>
      <MSGNR>002</MSGNR>
-     <TEXT>Nur periodische Einplanung erlaubt</TEXT>
+     <TEXT>Only periodic scheduling allowed</TEXT>
     </T100>
    </T100>
   </asx:values>

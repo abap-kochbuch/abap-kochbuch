@@ -47,19 +47,19 @@ CLASS zcl_acb_mail_newsletter IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD add_mail_header.
-    content &&= |<h1><strong>Newsletter Rezeptportal</strong></h1>|.
-    content &&= |<p>Herzlich willkommen zu unserem monatlichen Newsletter.</p>|.
-    content &&= |<p>Aufgrund deiner Treue bekommst du heute einen Gutschein.</p>|.
-    content &&= |<p>Heute erfährst du, was du im letzten Monat verpasst hast.</p>|.
+    content &&= |<h1><strong>Newsletter Recipe Portal</strong></h1>|.
+    content &&= |<p>Welcome to our monthly newsletter.</p>|.
+    content &&= |<p>Thanks to your loyalty, you'll receive a voucher today.</p>|.
+    content &&= |<p>Today you'll find out what you missed last month.</p>|.
   ENDMETHOD.
 
   METHOD add_recipe_infos.
     content &&= |<table style="border-collapse: collapse; width: 100%; height: 36px;" border="1"> |.
     content &&= |<tbody> |.
     content &&= |<tr style="height: 18px;"> |.
-    content &&= |<td style="width: 20%; height: 18px;">Rezept-ID</td>|.
-    content &&= |<td style="width: 60%; height: 18px;">Rezeptname</td>|.
-    content &&= |<td style="width: 20%; height: 18px;">Rezepttext</td>|.
+    content &&= |<td style="width: 20%; height: 18px;">Recipe ID</td>|.
+    content &&= |<td style="width: 60%; height: 18px;">Recipe name</td>|.
+    content &&= |<td style="width: 20%; height: 18px;">Recipe text</td>|.
     content &&= |</tr> |.
 
     LOOP AT recipes INTO DATA(recipe).
@@ -75,10 +75,9 @@ CLASS zcl_acb_mail_newsletter IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD add_mail_footer.
-    content &&= |<p>Bis dahin.</p>|.
-    content &&= |<p>Dein Lieblingsrezeptportal</p>|.
-    content &&= |<p>Besuche uns auch immer wieder auf unseren Social-Media Plattformen</p>|.
-
+    content &&= |<p>Until then.</p>|.
+    content &&= |<p>Your favorite recipe portal</p>|.
+    content &&= |<p>Visit us again on our social media platforms</p>|.
   ENDMETHOD.
 
   METHOD add_recipients.

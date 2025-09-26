@@ -1,24 +1,24 @@
 @Metadata.layer: #CORE
 
-@UI.headerInfo: { typeName: 'Massenänderung',
-                  typeNamePlural: 'Massenänderungen',
+@UI.headerInfo: { typeName: 'Mass Change',
+                  typeNamePlural: 'Mass Changes',
                   title: { value: 'ChangeTitle', type: #STANDARD },
                   description: { label: 'UUID', value: 'MassChangeUUID', type: #STANDARD } }
 
 annotate view ZACB_C_MassChange with
 
 {
-  @UI.facet: [ { id: 'idIdentification', type: #IDENTIFICATION_REFERENCE, label: 'Massenänderung', position: 10 },
+  @UI.facet: [ { id: 'idIdentification', type: #IDENTIFICATION_REFERENCE, label: 'Mass Change', position: 10 },
                { id: 'files',
                  purpose: #STANDARD,
                  type: #COLLECTION,
-                 label: 'Dateien',
+                 label: 'Files',
                  position: 20,
                  targetQualifier: 'filesGroup' } ]
   @UI.identification: [ { position: 10, label: '' },
-                        { type: #FOR_ACTION, dataAction: 'processFile', label: 'Datei verarbeiten' } ]
+                        { type: #FOR_ACTION, dataAction: 'processFile', label: 'Process file' } ]
   @UI.lineItem: [ { position: 10, importance: #HIGH, label: '' },
-                  { type: #FOR_ACTION, dataAction: 'processFile', label: 'Datei verarbeiten' } ]
+                  { type: #FOR_ACTION, dataAction: 'processFile', label: 'Process file' } ]
   MassChangeUUID;
 
   @UI.identification: [ { position: 20 } ]
@@ -28,7 +28,7 @@ annotate view ZACB_C_MassChange with
   @UI.facet: [
     {
       purpose: #STANDARD, // or #STANDARD
-      label      : 'Vorlage',
+      label      : 'Template',
       type       : #FIELDGROUP_REFERENCE,
       targetQualifier: 'templateFile',
       parentId: 'files',
@@ -37,8 +37,8 @@ annotate view ZACB_C_MassChange with
   ]
   @UI:
   { fieldGroup: [
-      { position: 10, qualifier: 'templateFile', label: 'Vorlage' },
-      { position: 20, label: 'Vorlage generieren', type: #FOR_ACTION, dataAction: 'generateTemplate', inline: true, qualifier: 'templateFile', emphasized: true, importance: #HIGH } ] }
+      { position: 10, qualifier: 'templateFile', label: 'Template' },
+      { position: 20, label: 'Generate template', type: #FOR_ACTION, dataAction: 'generateTemplate', inline: true, qualifier: 'templateFile', emphasized: true, importance: #HIGH } ] }
   TemplateFileContent;
 
   @UI.hidden: true
@@ -50,7 +50,7 @@ annotate view ZACB_C_MassChange with
   @UI.facet: [
     {
       purpose: #STANDARD, // or #STANDARD
-      label      : 'Verarbeitungsdatei',
+      label      : 'Processing file',
       type       : #FIELDGROUP_REFERENCE,
       targetQualifier: 'processingFile',
       parentId: 'files',
@@ -58,7 +58,7 @@ annotate view ZACB_C_MassChange with
     }
   ]
   @UI:
-  { fieldGroup: [ { position: 10, qualifier: 'processingFile', label: 'Verarbeitungsdatei' } ] }
+  { fieldGroup: [ { position: 10, qualifier: 'processingFile', label: 'Processing file' } ] }
   ProcessingFileContent;
 
   @UI.hidden: true
@@ -78,18 +78,18 @@ annotate view ZACB_C_MassChange with
 
   @UI.identification: [ { position: 80, label: '' } ]
   @UI.lineItem: [ { position: 80, importance: #MEDIUM, label: '' } ]
-  LocalCreatedAt;
+  localcreatedat;
 
   @UI.identification: [ { position: 90, label: '' } ]
   @UI.lineItem: [ { position: 90, importance: #MEDIUM, label: '' } ]
-  LocalCreatedBy;
+  localcreatedby;
 
   @UI.hidden: true
   LocalLastChangedAt;
 
-  @UI.lineItem: [ { position: 100, importance: #MEDIUM, label: 'Vorlage existiert' } ]
+  @UI.lineItem: [ { position: 100, importance: #MEDIUM, label: 'Template file exists' } ]
   TemplateFileExists;
 
-  @UI.lineItem: [ { position: 110, importance: #MEDIUM, label: 'Verarbeitungsdatei existiert' } ]
+  @UI.lineItem: [ { position: 110, importance: #MEDIUM, label: 'Processing file exists' } ]
   ProcessingFileExists;
 }

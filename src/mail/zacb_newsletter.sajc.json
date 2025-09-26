@@ -1,8 +1,8 @@
 {
   "formatVersion": "1",
   "header": {
-    "description": "Newsletter Versendung",
-    "originalLanguage": "de",
+    "description": "Sending Newsletter",
+    "originalLanguage": "en",
     "abapLanguageVersion": "cloudDevelopment"
   },
   "generalInformation": {

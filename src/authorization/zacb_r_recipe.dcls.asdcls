@@ -1,4 +1,4 @@
-@EndUserText.label: 'Rezept'
+@EndUserText.label: 'Recipe'
 @MappingRole: true
 define role ZACB_R_RECIPE {
     grant

@@ -24,7 +24,7 @@ CLASS zcl_acb_user_import_handler IMPLEMENTATION.
         log = cl_bali_log=>create_with_header( cl_bali_header_setter=>create( object    = 'ZACB_USER'
                                                                               subobject = 'IMPORT' ) ).
         log->add_item( cl_bali_free_text_setter=>create(
-          'Starte Benutzerdatenimport' ) ).
+          'Starting user import' ) ).
 
         DATA(parameters) = request->get_form_fields( ).
         DATA(delimiter) = VALUE #( parameters[ name = 'delimiter' ]-value OPTIONAL ).
@@ -34,8 +34,8 @@ CLASS zcl_acb_user_import_handler IMPLEMENTATION.
         IF request->get_method( ) <> 'POST'.
           response->set_status( if_web_http_status=>bad_request ).
           log->add_item( cl_bali_free_text_setter=>create( severity = if_bali_constants=>c_severity_error
-                                                           text     = |Nicht unterstützte HTTP-Methode | &&
-                                                                      |{ request->get_method( ) } erkannt| ) ).
+                                                           text     = |Unsupported HTTP method | &&
+                                                                      |{ request->get_method( ) } found| ) ).
         ENDIF.
 
         TRY.
@@ -43,7 +43,7 @@ CLASS zcl_acb_user_import_handler IMPLEMENTATION.
               WHEN 'application/csv'.
                 IF delimiter IS INITIAL.
                   response->set_status( if_web_http_status=>bad_request ).
-                  response->set_text( |Parameter DELIMITER (Trennzeichen) wurde nicht übergeben| ).
+                  response->set_text( |Parameter DELIMITER (separator) was not supplied| ).
                   RETURN.
                 ENDIF.
 
@@ -52,7 +52,7 @@ CLASS zcl_acb_user_import_handler IMPLEMENTATION.
 
                 IF users IS INITIAL.
                   response->set_status( if_web_http_status=>bad_request ).
-                  response->set_text( |Benutzerdaten konnten nicht konvertiert werden| ).
+                  response->set_text( |User data could not be converted| ).
                   RETURN.
                 ENDIF.
 
@@ -79,7 +79,7 @@ CLASS zcl_acb_user_import_handler IMPLEMENTATION.
 
               WHEN OTHERS.
                 response->set_status( if_web_http_status=>bad_request ).
-                response->set_text( |Content Type nicht unterstützt| ).
+                response->set_text( |Content Type not supported| ).
                 RETURN.
             ENDCASE.
           CATCH zcx_acb_user_conversion_error INTO DATA(conversion_error).

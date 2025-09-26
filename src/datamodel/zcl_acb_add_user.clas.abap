@@ -21,9 +21,9 @@ CLASS zcl_acb_add_user IMPLEMENTATION.
         admin      = abap_true
     ) ).
     IF sy-subrc = 0.
-      out->write( |🧑‍🍳 { myself } wurde hinzugefügt| ).
+      out->write( |🧑‍🍳 { myself } was added| ).
     ELSE.
-      out->write( |🧑‍🍳 { myself } hat bereits einen Benutzerstammsatz| ).
+      out->write( |🧑‍🍳 { myself } already has a user master record| ).
     ENDIF.
   ENDMETHOD.
 ENDCLASS.

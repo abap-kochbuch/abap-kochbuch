@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZBP_ACB_R_RECIPE</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Verhaltensdefinition</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Behavior definition</DESCRIPT>
     <CATEGORY>06</CATEGORY>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>

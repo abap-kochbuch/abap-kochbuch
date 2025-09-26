@@ -14,7 +14,7 @@ CLASS zcl_acb_user_conversion_demo IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
     DATA converter TYPE REF TO zif_acb_user_converter.
 
-    DATA(use_parallel) = abap_true. " Im Debugger änderbar
+    DATA(use_parallel) = abap_true. " Adjustable in the debugger
 
     CASE use_parallel.
       WHEN abap_true.

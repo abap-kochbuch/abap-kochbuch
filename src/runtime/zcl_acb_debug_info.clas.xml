@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_ACB_DEBUG_INFO</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Debug-Informationen zum Rezeptportal</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Debug Information for Recipe Portal</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

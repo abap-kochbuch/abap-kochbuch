@@ -1,15 +1,15 @@
 @Metadata.layer: #CUSTOMER
 @UI: {
   headerInfo: {
-    typeName: 'Zutat',
-    typeNamePlural: 'Zutaten'
+    typeName: 'Ingredient',
+    typeNamePlural: 'Ingredients'
   }
 }annotate view ZACB_C_Ingredient with
 {
   @UI.facet: [ {
     id: 'idIdentification2',
     type: #IDENTIFICATION_REFERENCE,
-    label: 'Zutaten',
+    label: 'Ingredient',
     position: 10
   } ]
   @UI.lineItem: [ {

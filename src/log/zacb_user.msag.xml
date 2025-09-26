@@ -4,39 +4,39 @@
   <asx:values>
    <T100A>
     <ARBGB>ZACB_USER</ARBGB>
-    <MASTERLANG>D</MASTERLANG>
-    <STEXT>Benutzerdatenverwaltung</STEXT>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>User Maintenance</STEXT>
    </T100A>
    <T100>
     <T100>
-     <SPRSL>D</SPRSL>
+     <SPRSL>E</SPRSL>
      <ARBGB>ZACB_USER</ARBGB>
      <MSGNR>000</MSGNR>
-     <TEXT>Beende Benutzerdatenimport</TEXT>
+     <TEXT>Finishing user import</TEXT>
     </T100>
     <T100>
-     <SPRSL>D</SPRSL>
+     <SPRSL>E</SPRSL>
      <ARBGB>ZACB_USER</ARBGB>
      <MSGNR>001</MSGNR>
-     <TEXT>&amp;1 Benutzerstammsätze wurden erfolgreich angepasst</TEXT>
+     <TEXT>&amp;1 users were successfully adjusted</TEXT>
     </T100>
     <T100>
-     <SPRSL>D</SPRSL>
+     <SPRSL>E</SPRSL>
      <ARBGB>ZACB_USER</ARBGB>
      <MSGNR>002</MSGNR>
-     <TEXT>Fehler bei Benutzerdatenkonvertierung</TEXT>
+     <TEXT>Error on user import</TEXT>
     </T100>
     <T100>
-     <SPRSL>D</SPRSL>
+     <SPRSL>E</SPRSL>
      <ARBGB>ZACB_USER</ARBGB>
      <MSGNR>003</MSGNR>
-     <TEXT>Delimiter (Trennzeichen) wurde nicht versorgt</TEXT>
+     <TEXT>Delimiter (separator) was not supplied</TEXT>
     </T100>
     <T100>
-     <SPRSL>D</SPRSL>
+     <SPRSL>E</SPRSL>
      <ARBGB>ZACB_USER</ARBGB>
      <MSGNR>004</MSGNR>
-     <TEXT>Zeilenaufbau oder Zellinhalt unerwartet</TEXT>
+     <TEXT>Row layout or cell content unexpected</TEXT>
     </T100>
    </T100>
   </asx:values>

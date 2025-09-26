@@ -1,4 +1,4 @@
-@EndUserText.label: 'CDS-Entität Zutat'
+@EndUserText.label: 'CDS Entity Ingredient'
 define view entity ZACB_I_Recipe_CDBO
   as select from zacb_recipe
 {

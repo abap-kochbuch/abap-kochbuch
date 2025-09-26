@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_ACB_USER_CONV_PARALLEL</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Benutzerdatenkonvertierer parallelisiert</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>User Converter in Parallel</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_ACB_NEWSLETTER_NOTIF</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Newsletter Benachrichtigung</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Newsletter Notification</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

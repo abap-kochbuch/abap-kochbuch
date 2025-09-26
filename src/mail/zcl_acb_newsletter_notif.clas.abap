@@ -19,10 +19,10 @@ CLASS zcl_acb_newsletter_notif IMPLEMENTATION.
     mail->set_sender( 'error@example.com' ).
     mail->add_recipient( 'test@example.com' ).
 
-    mail->set_subject( CONV #( | Jobfehler | ) ).
+    mail->set_subject( CONV #( | Job error | ) ).
 
-    mail->set_main( cl_bcs_mail_textpart=>create_text_plain( iv_content = | Der Job { is_job_info-job_name
-                                                                          } hat einen Fehler. Bitte prüfen | ) ).
+    mail->set_main( cl_bcs_mail_textpart=>create_text_plain( iv_content = | The job { is_job_info-job_name
+                                                                          } has an error. Please check. | ) ).
 
     mail->send( ).
   ENDMETHOD.

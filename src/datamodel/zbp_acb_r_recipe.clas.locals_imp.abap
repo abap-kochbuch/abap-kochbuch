@@ -25,16 +25,15 @@ CLASS lhc_review IMPLEMENTATION.
         APPEND VALUE #( %tky = entity-%tky
                         %msg = new_message_with_text(
                         severity = if_abap_behv_message=>severity-error
-                        text     = 'Nur Admin dürfen Reviews löschen...'
+                        text     = 'Only admins can delete reviews...'
                         ) ) TO reported-review.
       ENDIF.
     ENDLOOP.
   ENDMETHOD.
 
-    METHOD precheck_update.
+  METHOD precheck_update.
     DATA(myself) = cl_abap_context_info=>get_user_technical_name( ).
     LOOP AT entities INTO DATA(entity).
-
 
       SELECT SINGLE FROM zacb_review
       FIELDS created_by
@@ -42,14 +41,13 @@ CLASS lhc_review IMPLEMENTATION.
       INTO @DATA(created_by).
 
       IF created_by IS NOT INITIAL AND created_by <> myself.
-          APPEND VALUE #(  %tky =  entity-%tky ) TO failed-review.
+        APPEND VALUE #(  %tky =  entity-%tky ) TO failed-review.
 
-          APPEND VALUE #( %tky = entity-%tky
-                          %msg = new_message_with_text(
-                          severity = if_abap_behv_message=>severity-error
-                          text     = 'Keine Berechtigung zum Ändern von anderen Reviews'
-                          ) ) TO reported-review.
-        ENDIF.
+        APPEND VALUE #( %tky = entity-%tky
+                        %msg = new_message_with_text(
+                        severity = if_abap_behv_message=>severity-error
+                        text     = 'No permission to change other reviews'
+                        ) ) TO reported-review.
       ENDIF.
     ENDLOOP.
   ENDMETHOD.
@@ -74,23 +72,23 @@ CLASS lhc_ingredient IMPLEMENTATION.
     DATA(myself) = cl_abap_context_info=>get_user_technical_name( ).
     LOOP AT entities INTO DATA(entity).
 
-    SELECT SINGLE FROM zacb_ingredient
-    FIELDS created_by
-    WHERE ingredient_id = @entity-IngredientId
-    INTO @DATA(created_by).
+      SELECT SINGLE FROM zacb_ingredient
+      FIELDS created_by
+      WHERE ingredient_id = @entity-IngredientId
+      INTO @DATA(created_by).
 
-        IF created_by IS NOT INITIAL AND created_by <> myself.
-          IF sy-dbcnt = 0.
-            APPEND VALUE #(  %tky =  entity-%tky ) TO failed-ingredient.
+      IF created_by IS NOT INITIAL AND created_by <> myself.
 
-            APPEND VALUE #( %tky = entity-%tky
-                            %msg = new_message_with_text(
-                            severity = if_abap_behv_message=>severity-error
-                            text     = 'Sie dürfen hier keine Zutaten hinzufügen...'
-                            ) ) TO reported-ingredient.
-          ENDIF.
+        IF sy-dbcnt = 0.
+          APPEND VALUE #(  %tky =  entity-%tky ) TO failed-ingredient.
+
+          APPEND VALUE #( %tky = entity-%tky
+                          %msg = new_message_with_text(
+                          severity = if_abap_behv_message=>severity-error
+                          text     = 'You can not add any ingredients here...'
+                          ) ) TO reported-ingredient.
         ENDIF.
-      ENDLOOP.
+      ENDIF.
     ENDLOOP.
   ENDMETHOD.
 
@@ -111,7 +109,7 @@ CLASS lhc_ingredient IMPLEMENTATION.
           APPEND VALUE #( %tky = entity-%tky
                           %msg = new_message_with_text(
                           severity = if_abap_behv_message=>severity-error
-                          text     = 'Sie dürfen hier keine Zutaten löschen...'
+                          text     = 'You cannot delete ingredients here...'
                           ) ) TO reported-ingredient.
         ENDIF.
       ENDLOOP.
@@ -418,7 +416,7 @@ CLASS lhc_zacb_r_recipe IMPLEMENTATION.
       ELSE.
         APPEND VALUE #( %tky    = recipe-%tky
                         %delete = if_abap_behv=>auth-allowed
-                      ) TO result.
+        ) TO result.
       ENDIF.
     ENDLOOP.
   ENDMETHOD.
@@ -437,7 +435,7 @@ CLASS lhc_zacb_r_recipe IMPLEMENTATION.
         APPEND VALUE #( %tky = entity-%tky
                         %msg = new_message_with_text(
                         severity = if_abap_behv_message=>severity-error
-                        text     = 'Sie dürfen dieses Rezept nicht ändern...'
+                        text     = 'You can not alter this recipe...'
                         ) ) TO reported-recipe.
       ENDIF.
     ENDLOOP.

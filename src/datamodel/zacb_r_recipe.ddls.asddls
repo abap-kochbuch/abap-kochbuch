@@ -1,5 +1,5 @@
 @AccessControl.authorizationCheck: #MANDATORY
-@EndUserText.label: 'CDS-Entität Rezept'
+@EndUserText.label: 'CDS Entity Recipe'
 define root view entity ZACB_R_Recipe
   as select from zacb_recipe
   composition [0..*] of ZACB_R_Ingredient as _Ingredient

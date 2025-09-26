@@ -1,4 +1,4 @@
-@EndUserText.label: 'Projektionsentität'
+@EndUserText.label: 'Projection Entity Ingredient'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Metadata.allowExtensions: true
 define view entity ZACB_C_Ingredient

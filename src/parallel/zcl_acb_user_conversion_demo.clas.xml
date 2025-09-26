@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_ACB_USER_CONVERSION_DEMO</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Demo Benutzerdatenkonvertierung parallelisiert</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Demo User Conversion in Parallel</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

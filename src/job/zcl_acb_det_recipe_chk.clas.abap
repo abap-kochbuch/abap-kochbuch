@@ -46,7 +46,7 @@ CLASS zcl_acb_det_recipe_chk IMPLEMENTATION.
 
 
   METHOD if_apj_jt_check_20~check_authorizations.
-    " Fix für Installation von SAJC und SAJT per abapGit mit noch nicht gefüllter User-Tabelle
+    " Fix for installation of SAJC and SAJT via abapGit with not yet filled user table
     SELECT FROM zacb_user
       FIELDS COUNT(*).
     IF sy-dbcnt = 0.

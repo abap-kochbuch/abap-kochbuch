@@ -18,9 +18,9 @@ CLASS zcl_acb_demo_generator IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
     DATA nrlevel_recipe TYPE zacb_recipe_id.
 
-    out->write( |🍽️ Demodatengenerierung für ABAP Kochbuch 👨‍🍳| ).
+    out->write( |🍽️ Demo data generation for ABAP Cookbook 👨‍🍳| ).
 
-    out->write( |1. 🗑️ Lösche bestehende Tabelleninhalte| ).
+    out->write( |1. 🗑️ Deleting existing table contents| ).
 
     " _DATAMODEL
     DELETE FROM zacb_recipe.
@@ -41,9 +41,9 @@ CLASS zcl_acb_demo_generator IMPLEMENTATION.
     DATA(myself) = cl_abap_context_info=>get_user_technical_name( ).
     DATA(now) = cl_abap_tstmp=>utclong2tstmp( utclong_current( ) ).
 
-    out->write( |2. 🍝 Erstelle neue Tabelleninhalte| ).
-    out->write( |Benutzer: { myself }  | &&
-                |Zeit: { now TIMESTAMP = ISO TIMEZONE = 'UTC' } UTC| ).
+    out->write( |2. 🍝 Creating new table contents| ).
+    out->write( |User: { myself }  | &&
+                |Time: { now TIMESTAMP = ISO TIMEZONE = 'UTC' } UTC| ).
 
     DATA: BEGIN OF new_entries,
             recipe     TYPE i,
@@ -62,16 +62,16 @@ CLASS zcl_acb_demo_generator IMPLEMENTATION.
       local_last_changed_at = now
       last_changed_by       = myself
       last_changed_at       = now
-      ( recipe_id = '00001' recipe_name = 'Reis mit Fleisch'     recipe_text = 'Reis mit Fleisch für 2 Personen - lecker wie bei Mutter'                published = abap_true   )
-      ( recipe_id = '00002' recipe_name = 'Spaghetti Carbonara'  recipe_text = 'Carbonara für 1 bis 2 Personen - nur echt mit Sahne und viel Pfeffer'   published = abap_false  )
-      ( recipe_id = '00003' recipe_name = 'Nudelauflauf'         recipe_text = 'Nudelauf, 3 bis 4 Portionen - MUSKAT nicht vergessen(!)'                published = abap_true   )
-      ( recipe_id = '00004' recipe_name = 'Apfelpfannkuchen'     recipe_text = 'Apfelpfannkuchen - 2 Stück - auch als Apfelkaiserschmarrn'              published = abap_true   )
-      ( recipe_id = '00005' recipe_name = 'Bahmi Goreng'         recipe_text = 'Gebackene Nudeln mit Fleisch'                                           published = abap_false  )
-      ( recipe_id = '00006' recipe_name = 'Bauernfrüstück'       recipe_text = 'Ein Frühstückklassiker'                                                 published = abap_false  )
-      ( recipe_id = '00007' recipe_name = 'Bernburger Zwiebeln'  recipe_text = 'Eines meiner Lieblingsessen aus meiner Kindheit.'                       published = abap_true   )
-      ( recipe_id = '00008' recipe_name = 'Einfache Kekse'       recipe_text = 'Geht schnell - sind aber recht hart'                                    published = abap_false  )
-      ( recipe_id = '00009' recipe_name = 'Friko mit Kartoffelp' recipe_text = 'Ein Gericht wenns mal schnell gehen soll - schmeckt ganz gut.'          published = abap_false  )
-      ( recipe_id = '00010' recipe_name = 'Komar-Kekse'          recipe_text = 'Relativ einfach, verdammt süß dafür aber weich'                         published = abap_true   ) ) ).
+      ( recipe_id = '00001' recipe_name = 'Rice with Meat' recipe_text = 'Rice with Meat for 2 people - delicious like mom''s' published = abap_true )
+      ( recipe_id = '00002' recipe_name = 'Spaghetti Carbonara' recipe_text = 'Carbonara for 1 to 2 people - only authentic with cream and lots of pepper' published = abap_false )
+      ( recipe_id = '00003' recipe_name = 'Pasta Bake' recipe_text = 'Pasta Bake, 3 to 4 servings - don''t forget the nutmeg(!)' published = abap_true )
+      ( recipe_id = '00004' recipe_name = 'Apple Pancakes' recipe_text = 'Apple Pancakes - 2 pieces - also as Apple Kaiserschmarrn' published = abap_true )
+      ( recipe_id = '00005' recipe_name = 'Bahmi Goreng' recipe_text = 'Baked Noodles with Meat' published = abap_false )
+      ( recipe_id = '00006' recipe_name = 'Farmer''s Breakfast' recipe_text = 'A Breakfast Classic' published = abap_false )
+      ( recipe_id = '00007' recipe_name = 'Bernburger Onions' recipe_text = 'One of my favorite childhood meals.' published = abap_true )
+      ( recipe_id = '00008' recipe_name = 'Simple Cookies' recipe_text = 'Quick to make - but quite hard' published = abap_false )
+      ( recipe_id = '00009' recipe_name = 'Meatballs w/ Potatoes' recipe_text = 'A dish for when you need something quick - tastes quite good.' published = abap_false )
+      ( recipe_id = '00010' recipe_name = 'Komar Cookies' recipe_text = 'Relatively simple, incredibly sweet but soft' published = abap_true ) ) ).
     new_entries-recipe = sy-dbcnt.
     nrlevel_recipe = sy-dbcnt.
 
@@ -82,88 +82,88 @@ CLASS zcl_acb_demo_generator IMPLEMENTATION.
       local_last_changed_at = now
       last_changed_by       = myself
       last_changed_at       = now
-      ( recipe_id = '00001' ingredient_id = '00001' name = 'Reis'                      quantity = 150 unit = 'G' )
-      ( recipe_id = '00001' ingredient_id = '00002' name = 'Putenschnitzel'            quantity = 2   unit = 'ST' )
-      ( recipe_id = '00001' ingredient_id = '00003' name = 'Gemüsebrühe'               quantity = 3   unit = 'TL' )
-      ( recipe_id = '00001' ingredient_id = '00004' name = 'Zwiebel'                   quantity = 2   unit = 'ST' )
-      ( recipe_id = '00001' ingredient_id = '00005' name = 'Rosmarinpulver'            quantity = 2   unit = 'ST' )
-      ( recipe_id = '00001' ingredient_id = '00006' name = 'Pfeffer'                   quantity = 1   unit = 'TL' )
-      ( recipe_id = '00001' ingredient_id = '00007' name = 'Salz'                      quantity = 1   unit = 'TL' )
-      ( recipe_id = '00001' ingredient_id = '00008' name = 'Olivenöl'                  quantity = 2   unit = 'EL' )
-      ( recipe_id = '00001' ingredient_id = '00009' name = 'Erbsen'                    quantity = 300 unit = 'G' )
-      ( recipe_id = '00001' ingredient_id = '00010' name = 'Reibkäse'                  quantity = 4   unit = 'EL' )
-      ( recipe_id = '00002' ingredient_id = '00001' name = 'Zwiebel'                   quantity = 1   unit = 'ST' )
-      ( recipe_id = '00002' ingredient_id = '00002' name = 'Gekochter Schinken Schei.' quantity = 2   unit = 'ST' )
-      ( recipe_id = '00002' ingredient_id = '00003' name = 'Olivenöl'                  quantity = 2   unit = 'EL' )
-      ( recipe_id = '00002' ingredient_id = '00004' name = 'Sahne'                     quantity = 200 unit = 'G' )
-      ( recipe_id = '00002' ingredient_id = '00005' name = 'Eier'                      quantity = 1   unit = 'ST' )
-      ( recipe_id = '00002' ingredient_id = '00006' name = 'Reibkäse (vllt Mozarella)' quantity = 125 unit = 'G' )
-      ( recipe_id = '00002' ingredient_id = '00007' name = 'Spaghetti (No.3 schnell)'  quantity = 200 unit = 'G' )
-      ( recipe_id = '00002' ingredient_id = '00008' name = 'Pfeffer'                   quantity = 1   unit = 'ST' )
-      ( recipe_id = '00002' ingredient_id = '00009' name = 'Pfeffer (etwas mehr!)'     quantity = 1   unit = 'ST' )
-      ( recipe_id = '00003' ingredient_id = '00001' name = 'Nudeln (z. B. Penne)'      quantity = 200 unit = 'G' )
-      ( recipe_id = '00003' ingredient_id = '00002' name = 'Salami'                    quantity = 100 unit = 'G' )
-      ( recipe_id = '00003' ingredient_id = '00003' name = 'Zwiebel'                   quantity = 1   unit = 'ST' )
-      ( recipe_id = '00003' ingredient_id = '00004' name = 'Milch'                     quantity = 250 unit = 'ML' )
-      ( recipe_id = '00003' ingredient_id = '00005' name = 'Ei'                        quantity = 1   unit = 'ST' )
-      ( recipe_id = '00003' ingredient_id = '00006' name = 'Tomatenmark'               quantity = 2   unit = 'EL' )
-      ( recipe_id = '00003' ingredient_id = '00007' name = 'Salz'                      quantity = 2   unit = 'TL' )
-      ( recipe_id = '00003' ingredient_id = '00008' name = 'Muskat (wichtig)'          quantity = 1   unit = 'EL' )
-      ( recipe_id = '00004' ingredient_id = '00001' name = 'Äpfel (sauer)'             quantity = 2   unit = 'ST' )
-      ( recipe_id = '00004' ingredient_id = '00002' name = 'Mehl'                      quantity = 125 unit = 'G' )
-      ( recipe_id = '00004' ingredient_id = '00003' name = 'Eier'                      quantity = 2   unit = 'ST' )
-      ( recipe_id = '00004' ingredient_id = '00004' name = 'Zucker'                    quantity = 12  unit = 'G' )
-      ( recipe_id = '00004' ingredient_id = '00005' name = 'Milch'                     quantity = 185 unit = 'G' )
-      ( recipe_id = '00004' ingredient_id = '00006' name = 'Wasser'                    quantity = 60  unit = 'ML' )
-      ( recipe_id = '00004' ingredient_id = '00007' name = 'Margarine'                 quantity = 200 unit = 'G' )
-      ( recipe_id = '00005' ingredient_id = '00001' name = 'Nudeln'                    quantity = 45  unit = 'G' )
-      ( recipe_id = '00005' ingredient_id = '00002' name = 'Hühnerfleisch'             quantity = 400 unit = 'G' )
-      ( recipe_id = '00005' ingredient_id = '00003' name = 'gekochter Schinken'        quantity = 100 unit = 'G' )
-      ( recipe_id = '00005' ingredient_id = '00004' name = 'Porree'                    quantity = 1   unit = 'ST' )
-      ( recipe_id = '00005' ingredient_id = '00005' name = 'Zwiebeln'                  quantity = 2   unit = 'ST' )
-      ( recipe_id = '00005' ingredient_id = '00006' name = 'rote Paprikaschote'        quantity = 1   unit = 'ST' )
-      ( recipe_id = '00005' ingredient_id = '00007' name = 'Sellerie'                  quantity = 75  unit = 'G' )
-      ( recipe_id = '00006' ingredient_id = '00001' name = 'Kartoffelnn'               quantity = 450 unit = 'G' )
-      ( recipe_id = '00006' ingredient_id = '00002' name = 'Speck'                     quantity = 80  unit = 'G' )
-      ( recipe_id = '00006' ingredient_id = '00003' name = 'Milch'                     quantity = 3   unit = 'EL' )
-      ( recipe_id = '00006' ingredient_id = '00004' name = 'Schinkenwürfel'            quantity = 125 unit = 'G' )
-      ( recipe_id = '00006' ingredient_id = '00005' name = 'Tomaten'                   quantity = 2   unit = 'ST' )
-      ( recipe_id = '00006' ingredient_id = '00006' name = 'Schnittlauch'              quantity = 1   unit = 'ST' )
-      ( recipe_id = '00006' ingredient_id = '00007' name = 'Salz'                      quantity = 5   unit = 'G' )
-      ( recipe_id = '00007' ingredient_id = '00001' name = 'Hammelfleisch'             quantity = 500 unit = 'G' )
-      ( recipe_id = '00007' ingredient_id = '00002' name = 'Zwiebeln'                  quantity = 3   unit = 'ST' )
-      ( recipe_id = '00007' ingredient_id = '00003' name = 'Knoblauchzehen'            quantity = 2   unit = 'ST' )
-      ( recipe_id = '00007' ingredient_id = '00004' name = 'Salz'                      quantity = 5   unit = 'G' )
-      ( recipe_id = '00007' ingredient_id = '00005' name = 'Pfeffer'                   quantity = 5   unit = 'SG' )
-      ( recipe_id = '00007' ingredient_id = '00006' name = 'Kümmel'                    quantity = 1   unit = 'TL' )
-      ( recipe_id = '00007' ingredient_id = '00007' name = 'Kartoffeln'                quantity = 750 unit = 'G' )
-      ( recipe_id = '00007' ingredient_id = '00008' name = 'Kartoffeln'                quantity = 750 unit = 'G' )
-      ( recipe_id = '00007' ingredient_id = '00009' name = 'Speisestärke'              quantity = 1   unit = 'EL' )
-      ( recipe_id = '00007' ingredient_id = '00010' name = 'Weißbrotwürfel'            quantity = 2   unit = 'EL' )
-      ( recipe_id = '00008' ingredient_id = '00001' name = 'Hammelfleisch'             quantity = 500 unit = 'G' )
-      ( recipe_id = '00008' ingredient_id = '00002' name = 'Zwiebeln'                  quantity = 3   unit = 'ST' )
-      ( recipe_id = '00008' ingredient_id = '00003' name = 'Knoblauchzehen'            quantity = 2   unit = 'ST' )
-      ( recipe_id = '00008' ingredient_id = '00004' name = 'Salz'                      quantity = 5   unit = 'G' )
-      ( recipe_id = '00008' ingredient_id = '00005' name = 'Pfeffer'                   quantity = 5   unit = 'SG' )
-      ( recipe_id = '00008' ingredient_id = '00006' name = 'Kümmel'                    quantity = 1   unit = 'TL' )
-      ( recipe_id = '00008' ingredient_id = '00007' name = 'Kartoffeln'                quantity = 750 unit = 'G' )
-      ( recipe_id = '00008' ingredient_id = '00008' name = 'Kartoffeln'                quantity = 750 unit = 'G' )
-      ( recipe_id = '00008' ingredient_id = '00009' name = 'Speisestärke'              quantity = 1   unit = 'EL' )
-      ( recipe_id = '00008' ingredient_id = '00010' name = 'Weißbrotwürfel'            quantity = 2   unit = 'EL' )
-      ( recipe_id = '00009' ingredient_id = '00001' name = 'Milch'                     quantity = 500 unit = 'ML' )
-      ( recipe_id = '00009' ingredient_id = '00002' name = 'Rama'                      quantity = 1   unit = 'EL' )
-      ( recipe_id = '00009' ingredient_id = '00003' name = 'Kartoffelpüree'            quantity = 2   unit = 'ST' )
-      ( recipe_id = '00009' ingredient_id = '00004' name = 'Wasser'                    quantity = 1   unit = 'L' )
-      ( recipe_id = '00009' ingredient_id = '00005' name = 'Buletten'                  quantity = 4   unit = 'ST' )
-      ( recipe_id = '00009' ingredient_id = '00006' name = 'Paprikasosse'              quantity = 500 unit = 'ML' )
-      ( recipe_id = '00010' ingredient_id = '00001' name = 'Mehl'                      quantity = 250 unit = 'G' )
-      ( recipe_id = '00010' ingredient_id = '00002' name = 'Butter'                    quantity = 125 unit = 'G' )
-      ( recipe_id = '00010' ingredient_id = '00003' name = 'Brauner Zucker'            quantity = 125 unit = 'G' )
-      ( recipe_id = '00010' ingredient_id = '00004' name = 'Eier'                      quantity = 3   unit = 'ST' )
-      ( recipe_id = '00010' ingredient_id = '00005' name = 'Vanillearoma'              quantity = 1   unit = 'TL' )
-      ( recipe_id = '00010' ingredient_id = '00006' name = 'Salz'                      quantity = 1   unit = 'TL' )
-      ( recipe_id = '00010' ingredient_id = '00007' name = 'Zimt'                      quantity = 1   unit = 'TL' )
-      ( recipe_id = '00010' ingredient_id = '00008' name = 'Granulierter Zucker'       quantity = 1   unit = 'ST' )  ) ).
+      ( recipe_id = '00001' ingredient_id = '00001' name = 'Rice' quantity = 150 unit = 'G' )
+      ( recipe_id = '00001' ingredient_id = '00002' name = 'Turkey Schnitzel' quantity = 2 unit = 'PC' )
+      ( recipe_id = '00001' ingredient_id = '00003' name = 'vegetable broth' quantity = 3 unit = 'TS' )
+      ( recipe_id = '00001' ingredient_id = '00004' name = 'Onion' quantity = 2 unit = 'PC' )
+      ( recipe_id = '00001' ingredient_id = '00005' name = 'Rosemary powder' quantity = 2 unit = 'PC' )
+      ( recipe_id = '00001' ingredient_id = '00006' name = 'Pepper' quantity = 1 unit = 'TS' )
+      ( recipe_id = '00001' ingredient_id = '00007' name = 'Salt' quantity = 1 unit = 'TS' )
+      ( recipe_id = '00001' ingredient_id = '00008' name = 'Olive Oil' quantity = 2 unit = 'T' )
+      ( recipe_id = '00001' ingredient_id = '00009' name = 'Peas' quantity = 300 unit = 'G' )
+      ( recipe_id = '00001' ingredient_id = '00010' name = 'grated cheese' quantity = 4 unit = 'T' )
+      ( recipe_id = '00002' ingredient_id = '00001' name = 'Onion' quantity = 1 unit = 'PC' )
+      ( recipe_id = '00002' ingredient_id = '00002' name = 'Boiled Ham Schei.' quantity = 2 unit = 'PC' )
+      ( recipe_id = '00002' ingredient_id = '00003' name = 'Olive Oil' quantity = 2 unit = 'T' )
+      ( recipe_id = '00002' ingredient_id = '00004' name = 'Cream' quantity = 200 unit = 'G' )
+      ( recipe_id = '00002' ingredient_id = '00005' name = 'Eggs' quantity = 1 unit = 'PC' )
+      ( recipe_id = '00002' ingredient_id = '00006' name = 'grated cheese (possibly mozzarella)' quantity = 125 unit = 'G' )
+      ( recipe_id = '00002' ingredient_id = '00007' name = 'Spaghetti (No.3 quick)' quantity = 200 unit = 'G' )
+      ( recipe_id = '00002' ingredient_id = '00008' name = 'Pepper' quantity = 1 unit = 'PC' )
+      ( recipe_id = '00002' ingredient_id = '00009' name = 'Pepper (a little more!)' quantity = 1 unit = 'PC' )
+      ( recipe_id = '00003' ingredient_id = '00001' name = 'Pasta (e.g. penne)' quantity = 200 unit = 'G' )
+      ( recipe_id = '00003' ingredient_id = '00002' name = 'Salami' quantity = 100 unit = 'G' )
+      ( recipe_id = '00003' ingredient_id = '00003' name = 'Onion' quantity = 1 unit = 'PC' )
+      ( recipe_id = '00003' ingredient_id = '00004' name = 'Milk' quantity = 250 unit = 'ML' )
+      ( recipe_id = '00003' ingredient_id = '00005' name = 'Egg' quantity = 1 unit = 'PC' )
+      ( recipe_id = '00003' ingredient_id = '00006' name = 'Tomato paste' quantity = 2 unit = 'T' )
+      ( recipe_id = '00003' ingredient_id = '00007' name = 'Salt' quantity = 2 unit = 'TS' )
+      ( recipe_id = '00003' ingredient_id = '00008' name = 'Nutmeg (important)' quantity = 1 unit = 'T' )
+      ( recipe_id = '00004' ingredient_id = '00001' name = 'Apples (sour)' quantity = 2 unit = 'PC' )
+      ( recipe_id = '00004' ingredient_id = '00002' name = 'Flour' quantity = 125 unit = 'G' )
+      ( recipe_id = '00004' ingredient_id = '00003' name = 'Eggs' quantity = 2 unit = 'PC' )
+      ( recipe_id = '00004' ingredient_id = '00004' name = 'Sugar' quantity = 12 unit = 'G' )
+      ( recipe_id = '00004' ingredient_id = '00005' name = 'Milk' quantity = 185 unit = 'G' )
+      ( recipe_id = '00004' ingredient_id = '00006' name = 'Water' quantity = 60 unit = 'ML' )
+      ( recipe_id = '00004' ingredient_id = '00007' name = 'Margarine' quantity = 200 unit = 'G' )
+      ( recipe_id = '00005' ingredient_id = '00001' name = 'Pasta' quantity = 45 unit = 'G' )
+      ( recipe_id = '00005' ingredient_id = '00002' name = 'Chicken Meat' quantity = 400 unit = 'G' )
+      ( recipe_id = '00005' ingredient_id = '00003' name = 'cooked ham' quantity = 100 unit = 'G' )
+      ( recipe_id = '00005' ingredient_id = '00004' name = 'Leek' quantity = 1 unit = 'PC' )
+      ( recipe_id = '00005' ingredient_id = '00005' name = 'Onions' quantity = 2 unit = 'PC' )
+      ( recipe_id = '00005' ingredient_id = '00006' name = 'red pepper' quantity = 1 unit = 'PC' )
+      ( recipe_id = '00005' ingredient_id = '00007' name = 'Celery' quantity = 75 unit = 'G' )
+      ( recipe_id = '00006' ingredient_id = '00001' name = 'Potato' quantity = 450 unit = 'G' )
+      ( recipe_id = '00006' ingredient_id = '00002' name = 'Bacon' quantity = 80 unit = 'G' )
+      ( recipe_id = '00006' ingredient_id = '00003' name = 'Milk' quantity = 3 unit = 'T' )
+      ( recipe_id = '00006' ingredient_id = '00004' name = 'Ham cubes' quantity = 125 unit = 'G' )
+      ( recipe_id = '00006' ingredient_id = '00005' name = 'Tomatoes' quantity = 2 unit = 'PC' )
+      ( recipe_id = '00006' ingredient_id = '00006' name = 'Chives' quantity = 1 unit = 'PC' )
+      ( recipe_id = '00006' ingredient_id = '00007' name = 'Salt' quantity = 5 unit = 'G' )
+      ( recipe_id = '00007' ingredient_id = '00001' name = 'Mutton' quantity = 500 unit = 'G' )
+      ( recipe_id = '00007' ingredient_id = '00002' name = 'Onions' quantity = 3 unit = 'PC' )
+      ( recipe_id = '00007' ingredient_id = '00003' name = 'Garlic cloves' quantity = 2 unit = 'PC' )
+      ( recipe_id = '00007' ingredient_id = '00004' name = 'Salt' quantity = 5 unit = 'G' )
+      ( recipe_id = '00007' ingredient_id = '00005' name = 'Pepper' quantity = 5 unit = 'G' )
+      ( recipe_id = '00007' ingredient_id = '00006' name = 'Caraway seeds' quantity = 1 unit = 'TS' )
+      ( recipe_id = '00007' ingredient_id = '00007' name = 'Potatoes' quantity = 750 unit = 'G' )
+      ( recipe_id = '00007' ingredient_id = '00008' name = 'Potatoes' quantity = 750 unit = 'G' )
+      ( recipe_id = '00007' ingredient_id = '00009' name = 'Cornstarch' quantity = 1 unit = 'T' )
+      ( recipe_id = '00007' ingredient_id = '00010' name = 'White Bread Cubes' quantity = 2 unit = 'T' )
+      ( recipe_id = '00008' ingredient_id = '00001' name = 'Lamb' quantity = 500 unit = 'G' )
+      ( recipe_id = '00008' ingredient_id = '00002' name = 'Onions' quantity = 3 unit = 'PC' )
+      ( recipe_id = '00008' ingredient_id = '00003' name = 'Garlic Cloves' quantity = 2 unit = 'PC' )
+      ( recipe_id = '00008' ingredient_id = '00004' name = 'Salt' quantity = 5 unit = 'G' )
+      ( recipe_id = '00008' ingredient_id = '00005' name = 'Pepper' quantity = 5 unit = 'SG' )
+      ( recipe_id = '00008' ingredient_id = '00006' name = 'Caraway seeds' quantity = 1 unit = 'TS' )
+      ( recipe_id = '00008' ingredient_id = '00007' name = 'Potatoes' quantity = 750 unit = 'G' )
+      ( recipe_id = '00008' ingredient_id = '00008' name = 'Potatoes' quantity = 750 unit = 'G' )
+      ( recipe_id = '00008' ingredient_id = '00009' name = 'Starch' quantity = 1 unit = 'T' )
+      ( recipe_id = '00008' ingredient_id = '00010' name = 'White bread cubes' quantity = 2 unit = 'T' )
+      ( recipe_id = '00009' ingredient_id = '00001' name = 'Milk' quantity = 500 unit = 'ML' )
+      ( recipe_id = '00009' ingredient_id = '00002' name = 'Rama' quantity = 1 unit = 'T' )
+      ( recipe_id = '00009' ingredient_id = '00003' name = 'Mashed Potatoes' quantity = 2 unit = 'PC' )
+      ( recipe_id = '00009' ingredient_id = '00004' name = 'Water' quantity = 1 unit = 'L' )
+      ( recipe_id = '00009' ingredient_id = '00005' name = 'Meatballs' quantity = 4 unit = 'PC' )
+      ( recipe_id = '00009' ingredient_id = '00006' name = 'pepper sauce' quantity = 500 unit = 'ML' )
+      ( recipe_id = '00010' ingredient_id = '00001' name = 'Flour' quantity = 250 unit = 'G' )
+      ( recipe_id = '00010' ingredient_id = '00002' name = 'Butter' quantity = 125 unit = 'G' )
+      ( recipe_id = '00010' ingredient_id = '00003' name = 'Brown Sugar' quantity = 125 unit = 'G' )
+      ( recipe_id = '00010' ingredient_id = '00004' name = 'Eggs' quantity = 3 unit = 'PC' )
+      ( recipe_id = '00010' ingredient_id = '00005' name = 'Vanilla aroma' quantity = 1 unit = 'TS' )
+      ( recipe_id = '00010' ingredient_id = '00006' name = 'Salt' quantity = 1 unit = 'TS' )
+      ( recipe_id = '00010' ingredient_id = '00007' name = 'Cinnamon' quantity = 1 unit = 'TS' )
+      ( recipe_id = '00010' ingredient_id = '00008' name = 'Granulated sugar' quantity = 1 unit = 'PC' ) ) ).
     new_entries-ingredient = sy-dbcnt.
 
     INSERT zacb_review FROM TABLE @( VALUE #(
@@ -173,12 +173,12 @@ CLASS zcl_acb_demo_generator IMPLEMENTATION.
       last_changed_at       = now
       created_by            = myself
       created_at            = now
-      ( review_id = xco_cp=>uuid( )->value recipe_id = '0001' username = myself     review_text = 'Sehr lecker!' )
-      ( review_id = xco_cp=>uuid( )->value recipe_id = '0001' username = 'PATRICKW' review_text = 'Ich nehme deutlich mehr Salz' )
-      ( review_id = xco_cp=>uuid( )->value recipe_id = '0001' username = 'PATRICKH' review_text = 'Die Schnitzel sollten geklopft werden' )
-      ( review_id = xco_cp=>uuid( )->value recipe_id = '0002' username = 'PATRICKW' review_text = 'Mehr Salz' )
-      ( review_id = xco_cp=>uuid( )->value recipe_id = '0003' username = 'PATRICKW' review_text = 'Meersalz?' )
-      ( review_id = xco_cp=>uuid( )->value recipe_id = '0004' username = myself     review_text = 'Das Wenden ist unmöglich, außerdem sehr viel Apfel oder nicht?' ) ) ).
+      ( review_id = xco_cp=>uuid( )->value recipe_id = '0001' username = myself review_text = 'Very tasty!' )
+      ( review_id = xco_cp=>uuid( )->value recipe_id = '0001' username = 'PATRICKW' review_text = 'I use a lot more salt' )
+      ( review_id = xco_cp=>uuid( )->value recipe_id = '0001' username = 'PATRICKH' review_text = 'The schnitzels should be pounded' )
+      ( review_id = xco_cp=>uuid( )->value recipe_id = '0002' username = 'PATRICKW' review_text = 'More salt' )
+      ( review_id = xco_cp=>uuid( )->value recipe_id = '0003' username = 'PATRICKW' review_text = 'Sea salt?' )
+      ( review_id = xco_cp=>uuid( )->value recipe_id = '0004' username = myself review_text = 'Turning is impossible, and there''s a lot of apple, isn''t there?' ) ) ).
     new_entries-review = sy-dbcnt.
 
     DATA(my_details) = determine_user_details( EXACT #( myself ) ).
@@ -201,16 +201,16 @@ CLASS zcl_acb_demo_generator IMPLEMENTATION.
     new_entries-label = sy-dbcnt.
 
     INSERT zacb_labelt FROM TABLE @( VALUE #(
-      language              = 'D'
+      language              = 'E'
       local_last_changed_at = now
-      ( label_id = 'CHEAP'       label_text = 'Kostengünstig (obs.)' )
-      ( label_id = 'FAST_DISH'   label_text = 'Schnellgericht' )
-      ( label_id = 'INEXPENSIVE' label_text = 'Kostengünstig' )
-      ( label_id = 'MIGRATED'    label_text = 'Migrationsdaten' )
-      ( label_id = 'VEGETARIAN'  label_text = 'Vegetarisch' ) ) ).
+      ( label_id = 'CHEAP'       label_text = 'Cheap (obsol.)' )
+      ( label_id = 'FAST_DISH'   label_text = 'Fast dish' )
+      ( label_id = 'INEXPENSIVE' label_text = 'Inexpensive' )
+      ( label_id = 'MIGRATED'    label_text = 'Migrated' )
+      ( label_id = 'VEGETARIAN'  label_text = 'Vegetarian' ) ) ).
     new_entries-labelt = sy-dbcnt.
 
-    out->write( |Neue Datensätze:| ).
+    out->write( |New records:| ).
     out->write( |  ZACB_RECIPE    : { new_entries-recipe NUMBER = USER }| ).
     out->write( |  ZACB_INGREDIENT: { new_entries-ingredient NUMBER = USER }| ).
     out->write( |  ZACB_REVIEW    : { new_entries-review NUMBER = USER }| ).
@@ -218,7 +218,7 @@ CLASS zcl_acb_demo_generator IMPLEMENTATION.
     out->write( |  ZACB_LABEL     : { new_entries-label NUMBER = USER }| ).
     out->write( |  ZACB_LABELT    : { new_entries-labelt NUMBER = USER }| ).
 
-    out->write( |3. 🍝 Erstelle Nummernkreisintervall| ).
+    out->write( |3. 🍝 Creating number range interval| ).
     DATA(numberrange) = NEW zcl_acb_numberrange( ).
     IF numberrange->exists_interval( ).
       numberrange->update_interval(  0 ).
@@ -234,7 +234,7 @@ CLASS zcl_acb_demo_generator IMPLEMENTATION.
     TRY.
         DATA(partner) = cl_abap_context_info=>get_user_business_partner_id( user_name ).
         SELECT SINGLE
-          FROM ('I_BusinessPartner') " Nicht released im BTP ABAP Trial :(
+          FROM ('I_BusinessPartner') " Not released in the BTP ABAP Trial :(
           FIELDS FirstName, LastName
           WHERE BusinessPartner = @partner
           INTO @result.

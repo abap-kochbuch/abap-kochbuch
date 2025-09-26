@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_ACB_USER_CONVERTER</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Benutzerdatenkonvertierer</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>User Converter</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

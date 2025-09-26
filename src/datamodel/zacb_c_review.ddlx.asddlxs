@@ -48,10 +48,10 @@ annotate view ZACB_C_Review with
   @UI.lineItem: [ {
     position: 40 ,
     importance: #MEDIUM,
-    label: 'Rezeptbild'  } ]
+    label: 'Recipe Picture'  } ]
   @UI.identification: [ {
     position: 40 ,
-    label: 'RezeptBild'
+    label: 'Recipe Picture'
   } ]
   Attachment;
 

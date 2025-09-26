@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_ACB_RECIPE</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Klasse für Rezepte</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Class for recipes</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
@@ -14,8 +14,8 @@
    <DESCRIPTIONS>
     <SEOCOMPOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Erzeugung eines Rezeptes</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Creating a recipe</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>

@@ -1,29 +1,29 @@
-"! <p class="shorttext synchronized" lang="de">Klasse für Rezepte</p>
+"! <p class="shorttext synchronized" lang="en">Class for recipes</p>
 CLASS zcl_acb_recipe DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
 
   PUBLIC SECTION.
-    "! @parameter recipe_id | Übergabe einer Rezept-ID
-    "! @raising zcx_acb_recipe_not_found  | Fehler, wenn kein Eintrag zur Rezept-ID gefunden werden kann {@link ZCX_ACB_RECIPE_NOT_FOUND}.
+    "! @parameter recipe_id | Transfer of a recipe ID
+    "! @raising zcx_acb_recipe_not_found  | error, if no entry for the recipe ID can be found {@link ZCX_ACB_RECIPE_NOT_FOUND}.
     METHODS constructor IMPORTING recipe_id TYPE zacb_recipe_id RAISING zcx_acb_recipe_not_found.
   PROTECTED SECTION.
   PRIVATE SECTION.
     DATA:
-      "! Eindeutiger Identifier für ein Rezept
+      "! Unique identifier for a recipe
       recipe_id   TYPE zacb_recipe_id,
-      "! Beschreibung der Zubereitung
+      "! Describing the ingredients
       recipe_text TYPE zacb_recipe_text,
       "! Name des Rezepts
       recipe_name TYPE zacb_recipe_name,
-      "! Alle Zutaten für das Rezeptbeispiel
-      "!  <ul><li>Menge: 100</li>
-      "!      <li>Einheit: g</li>
-      "!      <li>Name: Mehl</li></ul>
+      "! All ingredients for the sample recipe
+      "! <ul><li>Quantity: 100</li>
+      "!      <li>Unit: g</li>
+      "!      <li>Name: Flour</li></ul>
       ingredients TYPE TABLE OF zacb_ingredient.
-    "! Laden der <em>Rezeptinformationen</em> anhand der Rezept-ID in der Tabelle <strong>ZACB_RECIPE</strong>
-    "! @raising zcx_acb_recipe_not_found  | Fehler, wenn kein Eintrag zur Rezept-ID gefunden werden kann {@link ZCX_ACB_RECIPE_NOT_FOUND}.
+    "! Load the <em>recipe information</em> using the recipe ID in table <strong>ZACB_RECIPE</strong>
+    "! @raising zcx_acb_recipe_not_found  | error, if no entry for the recipe ID can be found  {@link ZCX_ACB_RECIPE_NOT_FOUND}.
     METHODS load_recipe RAISING zcx_acb_recipe_not_found.
 
 ENDCLASS.

@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_ZACB_RECIPE_CHDO</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Generierte Klasse for Objekt :ZACB_RECIPE</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Generated class for object:ZACB_RECIPE</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <UNICODE>5</UNICODE>
@@ -13,121 +13,121 @@
    <DESCRIPTIONS>
     <SEOCOMPOTX>
      <CMPNAME>OBJECTCLASS</CMPNAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Objektklasse</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Object Class</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TT_ZACB_INGREDIENT</CMPNAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>generierter Tabellentyp: ZACB_INGREDIENT</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Generated Table Type: ZACB_INGREDIENT</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TY_ZACB_INGREDIENT</CMPNAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>generierter Zeilentyp:ZACB_INGREDIENT</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Generated Row Type:ZACB_INGREDIENT</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>WRITE</CMPNAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Schreibmethode für Object :ZACB_RECIPE</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Write method for object:ZACB_RECIPE</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
    <DESCRIPTIONS_SUB>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>CHANGENUMBER</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Änderungsbelegnummer</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Change Document Number</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>CX_CHDO_WRITE_ERROR</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Exceptionklasse für WRITE Methode</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Exception Class for WRITE Method</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>NO_CHANGE_POINTERS</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Kz: es werden keine Belege geschrieben</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Flag: No documents written</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>N_ZACB_RECIPE</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Workarea mit veränderten Inhalten</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Work area with changed contents</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>OBJECTID</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Id der Objektausprägung</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Object value ID</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>OBJECT_CHANGE_INDICATOR</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Kz: Objekt eingefügt, geändert oder gelöscht</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Flag: Object inserted, changed or deleted</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>O_ZACB_RECIPE</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Workarea mit ursprünglichen Inhalten</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Work area with original contents</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>PLANNED_CHANGE_NUMBER</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Plannummer</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Plan Number</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>PLANNED_OR_REAL_CHANGES</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Kz, ob Änderungen echt oder geplant sind</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Flag whether changes are actual or planned</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>UDATE</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Änderungsdatum</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Changed On</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>UPD_ZACB_INGREDIENT</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Art der Änderung</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Type of Change</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>UPD_ZACB_RECIPE</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Art der Änderung</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Type of Change</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>USERNAME</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Name des Ändernden</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Changed By</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>UTIME</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Änderungsuhrzeit</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Changed At</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>XZACB_INGREDIENT</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Tabelle enthält die veränderten Daten</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table contains the changed data</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE</CMPNAME>
      <SCONAME>YZACB_INGREDIENT</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Tabelle enthält unveränderte Daten</DESCRIPT>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table contains unchanged data</DESCRIPT>
     </SEOSUBCOTX>
    </DESCRIPTIONS_SUB>
   </asx:values>

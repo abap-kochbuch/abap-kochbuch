@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_ACB_DEMO_GENERATOR</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Demodatengenerator</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Demo Data Generator</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>

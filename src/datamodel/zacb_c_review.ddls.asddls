@@ -1,4 +1,4 @@
-@EndUserText.label: 'Projektionsentität Review'
+@EndUserText.label: 'Projection Entity Review'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Metadata.allowExtensions: true
 define view entity ZACB_C_Review

@@ -28,7 +28,7 @@ CLASS zcl_acb_unit_updater IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
     me->out = out.
 
-    out->write( |🍽️ Massenänderung von Mengeneinheiten| ).
+    out->write( |🍽️ Mass change of units of measure| ).
 
     update_units_db( ).
     update_units_eml( ).
@@ -45,12 +45,12 @@ CLASS zcl_acb_unit_updater IMPLEMENTATION.
       ORDER BY recipe_id
       INTO TABLE @DATA(recipes_to_update).
 
-    out->write( |Es wurden { lines( recipes_to_update ) NUMBER = USER }| &&
-      | zu aktualisierende Rezepte gefunden (DB)| ).
+    out->write( |{ lines( recipes_to_update ) NUMBER = USER }| &&
+      | recipes to update were found (DB)| ).
 
     LOOP AT recipes_to_update ASSIGNING FIELD-SYMBOL(<recipe>).
       TRY.
-          out->write( |Bearbeite Rezept { <recipe>-recipe_id }| ).
+          out->write( |Updating recipe { <recipe>-recipe_id }| ).
 
           SELECT SINGLE FROM zacb_recipe
             FIELDS *
@@ -63,7 +63,7 @@ CLASS zcl_acb_unit_updater IMPLEMENTATION.
             ORDER BY PRIMARY KEY
             INTO TABLE @DATA(ingredients_old).
           IF recipe_old IS INITIAL OR ingredients_old IS INITIAL.
-            cl_message_helper=>set_msg_vars_for_clike( |Überspringe Rezept, parallele Änderungen| ).
+            cl_message_helper=>set_msg_vars_for_clike( |Skipping recipe, parallel changes| ).
             RAISE EXCEPTION TYPE lcx_error USING MESSAGE.
           ENDIF.
 
@@ -83,14 +83,14 @@ CLASS zcl_acb_unit_updater IMPLEMENTATION.
           UPDATE zacb_recipe FROM @recipe_new.
           IF sy-subrc <> 0.
             cl_message_helper=>set_msg_vars_for_clike(
-              |Fehler bei Update auf ZACB_RECIPE: { sy-subrc }| ).
+              |Error updating ZACB_RECIPE: { sy-subrc }| ).
             RAISE EXCEPTION TYPE lcx_error USING MESSAGE.
           ENDIF.
 
           UPDATE zacb_ingredient FROM TABLE @ingredients_new.
           IF sy-subrc <> 0.
             cl_message_helper=>set_msg_vars_for_clike(
-              |Fehler bei Update auf ZACB_INGREDIENT: { sy-subrc }| ).
+              |Error updating ZACB_INGREDIENT: { sy-subrc }| ).
             RAISE EXCEPTION TYPE lcx_error USING MESSAGE.
           ENDIF.
 
@@ -131,8 +131,8 @@ CLASS zcl_acb_unit_updater IMPLEMENTATION.
       ORDER BY RecipeId
       INTO TABLE @DATA(recipes_to_update).
 
-    out->write( |Es wurden { lines( recipes_to_update ) NUMBER = USER }| &&
-      | zu aktualisierende Rezepte gefunden (EML)| ).
+    out->write( |{ lines( recipes_to_update ) NUMBER = USER }| &&
+      | recipes to update were found (EML)| ).
 
     IF recipes_to_update IS INITIAL.
       RETURN.

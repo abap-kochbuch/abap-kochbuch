@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOINTERF>
     <CLSNAME>ZIF_ACB_USER_CONVERTER</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Benutzerdatenkonvertierer</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>User Converter</DESCRIPT>
     <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
     <UNICODE>5</UNICODE>

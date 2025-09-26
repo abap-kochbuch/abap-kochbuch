@@ -4,8 +4,8 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_ACB_NUMBERRANGE</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Demo API für Nummernkreise</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Demo API for number ranges</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
