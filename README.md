@@ -2,13 +2,13 @@
 
 Here you will find resources for the ABAP Cookbook (published in 2025 by SAP PRESS) as an abapGit repository.
 
-<a href="https://www.rheinwerk-verlag.de/das-neue-abap-kochbuch-praktische-programmierloesungen-fuer-fortgeschrittene/"><img src="./img/das-neue-abap-kochbuch.png" alt="Book cover of ABAP Cookbook" width="500"/></a>
+<a href="https://www.sap-press.com/abap-cookbook_6198/"><img src="./img/abap-cookbook.png" alt="Book cover of ABAP Cookbook" width="500"/></a>
 
 > __🇺🇸 English Version__  
 > This is the English version of the repository with original language `EN`. A German version with original language `DE` is also available [here 🇩🇪](https://github.com/abap-kochbuch/abap-kochbuch).
 
 > __💡 Tip__  
-> Are you looking for the resources from the predecessor, which was published in its second edition by SAP Press in 2016, [_Das ABAP-Kochbuch_](https://www.rheinwerk-verlag.de/das-abap-kochbuch-erfolgsrezepte-fuer-entwickler/)? You can find these resources Sie [here](https://github.com/abapkochbuch/Sources).
+> Are you looking for the resources from the predecessor, which was published in its second edition by SAP Press in 2016, [_Das ABAP-Kochbuch_](https://www.rheinwerk-verlag.de/das-abap-kochbuch-erfolgsrezepte-fuer-entwickler/)? You can find these resources [here](https://github.com/abapkochbuch/Sources).
 
 > __☰ Contents__
 > - [Chapter references](#chapter-references)
