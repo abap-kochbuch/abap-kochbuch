@@ -27,7 +27,7 @@ Here you will find resources for the ABAP Cookbook (published in 2025 by SAP PRE
 > - [Troubleshooting](#troubleshooting)
 >
 > __💡 Tip__  
-> In the GitHub web interface, you can click the unordered list icon ![Unordered list icon](./list-unordered-16.svg) in the top right to display the navigation structure.
+> In the GitHub web interface, you can click the unordered list icon ![Unordered list icon](./img/list-unordered-16.svg) in the top right to display the navigation structure.
 
 ## Chapter References
 
