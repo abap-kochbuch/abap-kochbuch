@@ -27,7 +27,7 @@ Hier finden Sie Material zum neuen ABAP-Kochbuch (erschienen 2025 bei SAP PRESS)
 > - [Problembehandlung](#problembehandlung)
 >
 > __💡 Tipp__  
-> In der GitHub Weboberfläche können Sie oben rechts auf ![Icon unsortierte Liste](./list-unordered-16.svg) klicken, um die Navigationsstruktur anzuzeigen.
+> In der GitHub Weboberfläche können Sie oben rechts auf ![Icon unsortierte Liste](./img/list-unordered-16.svg) klicken, um die Navigationsstruktur anzuzeigen.
 
 ## Kapitelbezug
 
