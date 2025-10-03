@@ -74,23 +74,22 @@ CLASS lhc_ingredient IMPLEMENTATION.
     DATA(myself) = cl_abap_context_info=>get_user_technical_name( ).
     LOOP AT entities INTO DATA(entity).
 
-    SELECT SINGLE FROM zacb_ingredient
-    FIELDS created_by
-    WHERE ingredient_id = @entity-IngredientId
-    INTO @DATA(created_by).
+      SELECT SINGLE FROM zacb_ingredient
+      FIELDS created_by
+      WHERE ingredient_id = @entity-IngredientId
+      INTO @DATA(created_by).
 
-        IF created_by IS NOT INITIAL AND created_by <> myself.
-          IF sy-dbcnt = 0.
-            APPEND VALUE #(  %tky =  entity-%tky ) TO failed-ingredient.
+      IF created_by IS NOT INITIAL AND created_by <> myself.
+        IF sy-dbcnt = 0.
+          APPEND VALUE #(  %tky =  entity-%tky ) TO failed-ingredient.
 
-            APPEND VALUE #( %tky = entity-%tky
-                            %msg = new_message_with_text(
-                            severity = if_abap_behv_message=>severity-error
-                            text     = 'Sie dürfen hier keine Zutaten hinzufügen...'
-                            ) ) TO reported-ingredient.
-          ENDIF.
+          APPEND VALUE #( %tky = entity-%tky
+                          %msg = new_message_with_text(
+                          severity = if_abap_behv_message=>severity-error
+                          text     = 'Sie dürfen hier keine Zutaten hinzufügen...'
+                          ) ) TO reported-ingredient.
         ENDIF.
-      ENDLOOP.
+      ENDIF.
     ENDLOOP.
   ENDMETHOD.
 
