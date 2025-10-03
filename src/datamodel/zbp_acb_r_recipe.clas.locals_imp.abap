@@ -49,7 +49,6 @@ CLASS lhc_review IMPLEMENTATION.
                           severity = if_abap_behv_message=>severity-error
                           text     = 'Keine Berechtigung zum Ändern von anderen Reviews'
                           ) ) TO reported-review.
-        ENDIF.
       ENDIF.
     ENDLOOP.
   ENDMETHOD.
