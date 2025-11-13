@@ -363,3 +363,11 @@ Hierbei handelt es sich um Bugs in der Implementierung der SAP-Version von abapG
 ### Die Klasse `CL_MAIL_ADDRESS` ist im SAP BTP ABAP Environment Trial nicht freigegeben. (🌥️)
 
 Einige Entwicklungsobjekte sind generell in ABAP Cloud verfügbar und freigegeben, allerdings im Trial-System nicht verwendbar, und lösen daher Syntaxfehler aus. Zur Aktivierung müssen Sie im Trial-System die entsprechenden Code-Zeilen auskommentieren. In diesem Repository betrifft es die Klasse `CL_MAIL_ADDRESS`.
+
+### Ich erhalte den Laufzeitfehler `BEHAVIOR_ILLEGAL_STATEMENT` in der Business Configuration App
+
+Die eingebaute Validierung in der Business Configuration Maintenance App nutzt zur Prüfung von Fremdschlüsseln die XCO‑Bibliothek. Diese ist jedoch nicht (mehr) in der Lage, Datenbanktabellen in temporären Paketen zu prüfen. Abhängig von der gewählten Installationsvariante und der Laufzeitumgebung schlägt die Validierungsprüfung daher mit einem internen Fehler fehl.
+
+Als Workaround können Sie die Anwendung in einem transportpflichtigen Paket (z. B. `ZCOOKBOOK`) installieren, die Datenbanktabelle `ZACB_LABEL` über einen C1‑Releasekontrakt mit `Use in Cloud Development` freigeben oder die Validierungsprüfung in der Methode `VALIDATEDATACONSISTENCY` im lokalen Klassen‑Include der globalen Klasse `ZBP_ACB_I_LABEL_S` auskommentieren.
+
+Details zum Fehler finden Sie im Hinweis [3671779 – Maintenance Object (SMBC) Wizard: Runtime error in consistency check](https://me.sap.com/notes/3671779/E).
