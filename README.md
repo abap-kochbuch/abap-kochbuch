@@ -363,3 +363,11 @@ These are bugs in the implementation of the SAP version of abapGit. Open a messa
 ### The `CL_MAIL_ADDRESS` class has not been released in the SAP BTP ABAP Environment Trial. (🌥️)
 
 Some development objects are generally available and released in ABAP Cloud, but cannot be used in the trial system and therefore trigger syntax errors. To activate them, you must comment out the corresponding code lines in the trial system. In this repository, this affects the `CL_MAIL_ADDRESS` class.
+
+### I receive the runtime error `BEHAVIOR_ILLEGAL_STATEMENT` in the Business Configuration App
+
+The built-in validation in the Business Configuration Maintenance App uses the XCO library to check foreign keys. However, it is no longer capable of validating database tables in temporary packages. Depending on the chosen installation variant and runtime environment, the validation check therefore fails with an internal error.
+
+As a workaround, you can install the application in a transportable package (e.g., `ZCOOKBOOK`), release the database table `ZACB_LABEL` via a C1 release contract with “Use in Cloud Development,” or comment out the validation check in the method `VALIDATEDATACONSISTENCY` in the local class include of the global class `ZBP_ACB_I_LABEL_S`.
+
+For details about the error, please refer to the note [3671779 – Maintenance Object (SMBC) Wizard: Runtime error in consistency check](https://me.sap.com/notes/3671779/E).
